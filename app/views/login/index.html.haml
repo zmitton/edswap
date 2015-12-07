@@ -1,6 +1,5 @@
-.col-md-8.col-md-offset-2
-    .row
-        .panel.panel-default
-            .panel-heading
-                %h1 This will be the login page
-                %h3= link_to 'welcome', root_path
+
+%form.login-form
+  %input.login-input{placeholder: "E-mail"}
+  %input.login-input{placeholder: "Password"}
+  %input.login-submit{type: "submit", value: "Login" }
