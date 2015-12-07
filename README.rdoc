@@ -1,11 +1,7 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
+  rails 4.2.5
 
 * System dependencies
 
@@ -21,22 +17,3 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-
-
-get wish list folder
-likes: color scheme interfaces, push buttons
-
-map of location when you click an item
-
-rating system
-
-inspectlet
-
-let people browse without logging in
-
- n 
