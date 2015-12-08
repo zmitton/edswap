@@ -16,8 +16,28 @@
                 %li= link_to "My Account"
                 %li= link_to "Feedback"
                 %li= link_to "+ New Listing"
+                
+                %li= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"
+                %li= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in_w_google"
 
     .container
         - flash.each do |name, msg|
             = content_tag :div, msg, class: "alert alert-info"
         = yield
+
+        - if current_user
+            Signed in as #{current_user.name}
+            = link_to "Sign out", signout_path, id: "sign_out"
+        - else
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+            </fb:login-button>
+
+            %div{id: "status"}
+            = link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"
+            = link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in_w_google"
+
+
+
+
+
+
