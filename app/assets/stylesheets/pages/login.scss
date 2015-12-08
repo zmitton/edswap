@@ -6,8 +6,16 @@
   margin: 0 auto;
   padding: 15px;
   max-width: 400px;
-  background: #fff;
+  background: $dk-sage;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
+.login-submit {
+    background-color: $burgandy;
+    color: white;
+}
+
+.login-form {
+    max-width: 420px;
+}
