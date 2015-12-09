@@ -2,4 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.disclaimer {
+  width: 320px;
+  margin: 0 auto;
+}
 
+#status a#sign_in_w_google,
+#status a#sign_in {
+  color: white
+}

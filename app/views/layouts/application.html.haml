@@ -9,14 +9,15 @@
 %body
     %nav.navbar.navbar-default
         .container
-            .navbar-brand= link_to "edSwap", root_path
+            =image_tag "pencil_logo.png", :height => "80"
+            /.navbar-brand= link_to "edSwap", root_path
 
             %ul.nav.navbar-nav.navbar-right
                 %li= link_to "Browse"
                 %li= link_to "My Account"
                 %li= link_to "Feedback"
                 %li= link_to "+ New Listing"
-                
+
                 %li= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in_w_facebook"
                 %li= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in_w_google"
 
@@ -28,9 +29,9 @@
             <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
             </fb:login-button>
 
-            %div{id: "status"}
-            = link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"
-            = link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in_w_google"
+            / %div{id: "status"}
+            / = link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"
+            / = link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in_w_google"
 
         - flash.each do |name, msg|
             = content_tag :div, msg, class: "alert alert-info"

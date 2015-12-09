@@ -1,8 +1,63 @@
-.col-md-8.col-md-offset-2
-    .row
-        .panel.panel-default
-            .panel-heading
-                %h1 This will be the Welcome page!
-                %p EdSwap does not share any of your personal data. We use facebook or google login to make it easier and more convenient for you to create an account with us. We use this email address internally as your identity but will never send any spam or give any information to a third party whatsoever.
+%header.jumbotron.hero-spacer.text-center
+  %h1 Welcome to edSwap!
+  %p  Get connected to the classroom materials and resources YOU need.
+  %p edSwap is a FREE, teacher-to-teacher platform
+  %p More than a marketplace, it's a community.
+  %div.btn.btn-primary.btn-large.btn-text{id: "status"}
+    = link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"
+  %div.btn.btn-danger.btn-large.btn-text{id: "status"}
+    = link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in_w_google"
+  .disclaimer
+    %h6 EdSwap does not share any of your personal data. We use facebook or google login to make it easier and more convenient for you to create an account with us.
+    %h6 We use this email address internally as your identity but will never send any spam or give any information to a third party whatsoever.
 
+%hr
+  / Title
+  .row
+    .col-lg-12
+      %h3 Recent Ads
+  / .row
+  / Page Features
+  .row.text-center
+    .col-md-3.col-sm-6.hero-feature
+      .thumbnail
+        %img{:alt => "", :src => "http://placehold.it/800x500"}
+          .caption
+            %h3 Title
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            %p
+              %a.btn.btn-warning{:href => "#"} Buy Now!
+              %a.btn.btn-default{:href => "#"} More Info
+    .col-md-3.col-sm-6.hero-feature
+      .thumbnail
+        %img{:alt => "", :src => "http://placehold.it/800x500"}
+          .caption
+            %h3 Title
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            %p
+              %a.btn.btn-warning{:href => "#"} Buy Now!
+              %a.btn.btn-default{:href => "#"} More Info
+    .col-md-3.col-sm-6.hero-feature
+      .thumbnail
+        %img{:alt => "", :src => "http://placehold.it/800x500"}
+          .caption
+            %h3 Title
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            %p
+              %a.btn.btn-warning{:href => "#"} Buy Now!
+              %a.btn.btn-default{:href => "#"} More Info
+    .col-md-3.col-sm-6.hero-feature
+      .thumbnail
+        %img{:alt => "", :src => "http://placehold.it/800x500"}
+          .caption
+            %h3 Feature Label
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            %p
+              %a.btn.btn-warning{:href => "#"} Buy Now!
+              %a.btn.btn-default{:href => "#"} More Info
+  %hr
+    %footer
+      .row
+        .col-lg-12
+          %p.text-right Copyright &copy; edSwap 2015
 
