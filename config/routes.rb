@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
+  resources :listings
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root to: 'welcome#index'
 
-  get 'auth/:provider/callback', to: 'sessions#create'
-  get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
-  resources :sessions, only: [:create, :destroy]
 
+  resources :sessions, only: [:new, :create, :destroy, :show]
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'auth/failure', to: redirect('/')
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+  
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

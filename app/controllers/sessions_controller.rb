@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
-    # def new
-    #   render 'login/index'
-    # end
+    def new
+    end
 
 
     def create

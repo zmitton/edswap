@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @listing.author %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @listing.type %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @listing.subject %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @listing.body %>
+</p>
+
+<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Back', listings_path %>
