@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210235517) do
+ActiveRecord::Schema.define(version: 20151215033839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "listing_images", force: :cascade do |t|
+    t.integer  "listing_id"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "listings", force: :cascade do |t|
     t.integer  "author"
@@ -30,6 +37,9 @@ ActiveRecord::Schema.define(version: 20151210235517) do
     t.string   "uid"
     t.string   "name"
     t.string   "oauth_token"
+    t.string   "oauth_email"
+    t.string   "preferred_email"
+    t.string   "password_digest"
     t.datetime "oauth_expires_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false

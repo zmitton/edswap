@@ -10,21 +10,19 @@
   %nav.navbar.navbar-default
     .container
       =image_tag "ed_swap_logo.png", :height => "70"
+      - if current_user
+        Hi #{current_user.nickname}
 
       %ul.nav.navbar-nav.navbar-right
-        %li= link_to "Browse"
+        %li= link_to "Browse", listings_path
         %li= link_to "My Account"
         %li= link_to "Feedback"
         %li= link_to "+ New Listing"
         - if current_user
-          Signed in as #{current_user.name}
-          = link_to "Sign out", signout_path, id: "sign_out"
-        - else
+          %li= link_to "Sign out", signout_path, id: "sign_out"
+        - else 
           %li= link_to "Login / Sign up", login_path
   .container
-    / - else
-    /   <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-    /   </fb:login-button>
 
     - flash.each do |name, msg|
       = content_tag :div, msg, class: "alert alert-info"

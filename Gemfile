@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -37,6 +37,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'pry'
   gem 'byebug'
 end
 
@@ -50,4 +51,3 @@ end
 
 gem 'omniauth-facebook', '~> 1.4.1'
 gem "omniauth-google-oauth2", "~> 0.2.1"
-gem 'pry'
