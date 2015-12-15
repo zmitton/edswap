@@ -4,27 +4,23 @@
 
 body {
     background: $lt-tan;
+    // font-family: 'ProximaNova';
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 100;
 }
 
-nav {
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-    background-color: $brown;
-    .navbar-brand {
-        a {
-            color: $brown;
-            font-weight: bold;
-            &:hover {
-                text-decoration: none;
-            }
-        }
-    }
+.navbar.navbar-default {
+  border-bottom: 1px solid rgba(255,255,255,.3);
+  background-color: $brown;
+  li a {
+    color: white;
+    text-transform: uppercase;
+  }
 }
 
 .navbar-right li a {
-  padding-top: 30px;
-  font-size: 1.3em;
+  padding-top: 25px;
+  font-size: 1.1em;
 }

@@ -6,14 +6,20 @@
     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
     </fb:login-button>
 
-    %div{id: "status"}
-    %div.btn.btn-primary.btn-large.btn-text{id: "status"}
-      = link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in_w_facebook"
-    %div.btn.btn-danger.btn-large.btn-text{id: "status"}
-      = link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in_w_google"
+    %div.center{id: "status"}
+    %h2.text-center Login or Sign Up
+    %hr
+    %div.align-center
+      %div.btn.btn-primary.btn-large.btn-text{id: "status"}
+        = link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"
+      %div.btn.btn-danger.btn-large.btn-text{id: "status"}
+        = link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in_w_google"
+    %hr
 
   %input.login-input{placeholder: "E-mail"}
+  %br
   %input.login-input{placeholder: "Password"}
+  %br
   %input.login-submit{type: "submit", value: "Login" }
 
-  
+

@@ -5,17 +5,20 @@
 .login-form {
   margin: 0 auto;
   padding: 15px;
-  max-width: 400px;
-  background: $dk-sage;
+  max-width: 450px;
+  background: $sage;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+  color: #brown;
+
 }
 
 .login-submit {
-    background-color: $burgandy;
-    color: white;
+  background-color: $rose;
+  color: white;
 }
 
-.login-form {
-    max-width: 420px;
+.login-input {
+  margin-bottom: 20px;
+
 }

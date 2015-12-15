@@ -9,7 +9,7 @@
 %body
   %nav.navbar.navbar-default
     .container
-      =image_tag "pencil_logo.png", :height => "80"
+      =image_tag "ed_swap_logo.png", :height => "70"
 
       %ul.nav.navbar-nav.navbar-right
         %li= link_to "Browse"
@@ -19,7 +19,7 @@
         - if current_user
           Signed in as #{current_user.name}
           = link_to "Sign out", signout_path, id: "sign_out"
-        - else 
+        - else
           %li= link_to "Login / Sign up", login_path
   .container
     / - else
