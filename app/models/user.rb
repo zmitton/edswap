@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
     session[:user_id] = id
   end
 
+  def nickname
+    name == "" ? email : name
+  end
+
   def email
     preferred_email || oauth_email
   end
@@ -31,18 +35,26 @@ class User < ActiveRecord::Base
   end
 
   def self.from_registration_form(user_params)
-    user = User.new
-    user.preferred_email = user_params[:preferred_email]
-    user.password = user_params[:password]
-    user.verify_password
+    user = find_by(preferred_email: user_params[:preferred_email], provider: 'edswap')
+    if user
+      if user.authenticate(user_params[:password])
+        user
+      else
+        user = nil
+      end
+    else
+      user = User.new
+      user.preferred_email = user_params[:preferred_email]
+      user.password = user_params[:password]
+      user.verify_password
 
-    user.provider = "edswap"
-    user.uid = nil
-    user.name = ""
-    user.oauth_token = nil
-    user.oauth_expires_at = nil
-
-    user.save!
-    user
+      user.provider = "edswap"
+      user.uid = nil
+      user.name = ""
+      user.oauth_token = nil
+      user.oauth_expires_at = nil
+      user.save!
+      user
+    end
   end
 end

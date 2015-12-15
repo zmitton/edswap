@@ -18,6 +18,12 @@
               %input.login-input{placeholder: "email"}
               %input.login-input{placeholder: "at least 8 characters"}
               %input.login-submit{type: "submit", value: "Sign In" }
+
+            = form_for @user, url: url_for(controller: 'sessions', action: "create") do |f|
+              = f.text_field :preferred_email, placeholder: "email"
+              = f.password_field :password, placeholder: "at least 8 characters"
+              = f.submit value: "register" 
+
           .col-md-2.col-sm-12
             %h3 - or -
           .col-md-5.col-sm-12
@@ -26,11 +32,6 @@
               = f.text_field :preferred_email, placeholder: "email"
               = f.password_field :password, placeholder: "at least 8 characters"
               = f.submit value: "register" 
-
-            / %form.login_form{action: "/users", method: "post"}
-            /   %input.login-input{placeholder: "email"}
-            /   %input.login-input{placeholder: "at least 8 characters"}
-            /   %input.login-submit{type: "submit", value: "Resister" }
         .row
           .col-lg-12
             .disclaimer

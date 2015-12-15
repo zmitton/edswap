@@ -11,10 +11,10 @@
     .container
       =image_tag "pencil_logo.png", :height => "80"
       - if current_user
-        Hi #{current_user.name}
+        Hi #{current_user.nickname}
 
       %ul.nav.navbar-nav.navbar-right
-        %li= link_to "Browse"
+        %li= link_to "Browse", listings_path
         %li= link_to "My Account"
         %li= link_to "Feedback"
         %li= link_to "+ New Listing"

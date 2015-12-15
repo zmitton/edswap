@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     else
       user = User.from_omniauth(env["omniauth.auth"])
     end
-binding.pry
+
     if user
       session[:user_id] = user.id
       redirect_to root_path #redirect preffereably where they came from
