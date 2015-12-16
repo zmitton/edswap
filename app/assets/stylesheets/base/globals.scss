@@ -2,25 +2,51 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+  border-radius: 0 !important;
+}
+
 body {
-    background: $lt-tan;
-    // font-family: 'ProximaNova';
+  background: $lt-tan;
+  // font-family: 'ProximaNova';
+  //background: -webkit-linear-gradient(top, $brown  42%, $lt-tan 100%);
+  //background: -moz-linear-gradient(top, $lt-tan  42%, $sage 100%);
+  //background-image: url(image_path('notebooks.jpg'));
+
+  //background: linear-gradient(to bottom left, rgba(33, 34, 26, 0.8), rgba(33, 34, 26, 0.5)), url(image_path('notebooks.jpg'));
+
+  //background-attachment: fixed;
+  //background-size: cover;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 100;
 }
 
-.navbar.navbar-default {
-  border-bottom: 1px solid rgba(255,255,255,.3);
-  background-color: $brown;
+nav.navbar.nav-pills {
+  background-color: $dk-sage;
+  //position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  -webkit-box-shadow: 1px 9px 17px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 9px 17px -5px rgba(0,0,0,0.75);
+  box-shadow: 1px 9px 17px -5px rgba(0,0,0,0.75);
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-radius: 0px;
   li a {
     color: white;
-    text-transform: uppercase;
   }
 }
 
 .navbar-right li a {
-  padding-top: 25px;
+  padding: 25px;
   font-size: 1.1em;
+}
+
+#status a#sign_in_w_google,
+#status a#sign_in {
+  color: white;
 }

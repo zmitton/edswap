@@ -7,7 +7,7 @@
   = csrf_meta_tags
 
 %body
-  %nav.navbar.navbar-default
+  %nav.navbar.nav-pills
     .container
       =image_tag "ed_swap_logo.png", :height => "70"
       - if current_user
@@ -20,7 +20,7 @@
         %li= link_to "+ New Listing"
         - if current_user
           %li= link_to "Sign out", signout_path, id: "sign_out"
-        - else 
+        - else
           %li= link_to "Login / Sign up", login_path
   .container
 
