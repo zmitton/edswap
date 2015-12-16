@@ -2,10 +2,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-* {
-  border-radius: 0 !important;
-}
-
 body {
   background: $lt-tan;
   // font-family: 'ProximaNova';
@@ -46,7 +42,29 @@ nav.navbar.nav-pills {
   font-size: 1.1em;
 }
 
+.navbar-logo {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.nav>li>a:hover,
+.nav>li>a:focus {
+    text-decoration: none;
+    background-color: $lt-rose;
+}
+
 #status a#sign_in_w_google,
 #status a#sign_in {
   color: white;
+  margin: 20px;
+}
+
+.social-icons {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#user_password,
+#user_preferred_email {
+  height: 34px;
 }

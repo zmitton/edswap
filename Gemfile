@@ -24,6 +24,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'haml', '~> 4.0', '>= 4.0.7'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'font-awesome-rails', '~> 4.5'
 
 
 # Use ActiveModel has_secure_password
