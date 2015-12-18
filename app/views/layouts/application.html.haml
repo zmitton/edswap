@@ -15,12 +15,13 @@
 
       %ul.nav.navbar-nav.navbar-right
         %li= link_to "Browse", listings_path
-        %li= link_to "My Account"
-        %li= link_to "Feedback"
-        %li= link_to "+ New Listing"
+        / %li= link_to "Feedback"
         - if current_user
+          %li= link_to "+ New Listing", new_listing_path
+          %li= link_to "My Account", user_edit_path(session[:user_id])
           %li= link_to "Sign out", signout_path, id: "sign_out"
         - else 
+          %li= link_to "+ New Listing", login_path(destination_uri: new_listing_path)
           %li= link_to "Login / Sign up", login_path
   .container
 
