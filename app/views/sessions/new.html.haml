@@ -17,13 +17,15 @@
                 = f.text_field :preferred_email, placeholder: "email"
                 = f.password_field :password, placeholder: "at least 8 characters"
                 = f.submit "sign in", :class => 'btn btn-warning'
-
           .col-md-6.col-sm-12
             .thumbnail.sign-in-box
               %h2 Create an Account
-              = form_for @user, url: url_for(controller: 'sessions', action: "create") do |f|
-                = f.text_field :preferred_email, placeholder: "email"
-                = f.password_field :password, placeholder: "at least 8 characters"
+              = form_for @user, url: url_for(controller: 'users', action: "create") do |f|
+                = f.text_field :preferred_email, placeholder: "email", required: true
+                = f.password_field :password, placeholder: "at least 8 characters", required: true
                 = f.submit value: "register", :class => 'btn btn-warning'
+        .row
+          .col-lg-12
+            .disclaimer
               %h6 EdSwap does not share any of your personal data. We use facebook or google login to make it easier and more convenient for you to create an account with us.
               %h6 We use this email address internally as your identity but will never send any spam or give any information to a third party whatsoever.

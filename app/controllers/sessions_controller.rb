@@ -1,20 +1,22 @@
 class SessionsController < ApplicationController
   def new
     @user = User.new
+    session[:destination_uri] = params[:destination_uri]
   end
 
   def create
     if params.key?(:user)
-      user = User.from_registration_form(user_params)
+      @user = User.from_login_form(user_params)
     else
-      user = User.from_omniauth(env["omniauth.auth"])
+      @user = User.from_omniauth(env["omniauth.auth"])
     end
 
-    if user
-      session[:user_id] = user.id
-      redirect_to root_path #redirect preffereably where they came from
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to destination_path #redirect preferably where they came from
     else
-      redirect_to root_path #didnt work so do something else
+      flash[:notice] = 'sorry a problem occurred please try logging in again'
+      render 'sessions/new' #didnt work so do something else
     end
   end
 
