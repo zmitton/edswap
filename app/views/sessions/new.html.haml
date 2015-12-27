@@ -16,14 +16,14 @@
               = form_for @user, url: url_for(controller: 'sessions', action: "create") do |f|
                 = f.text_field :preferred_email, placeholder: "email"
                 = f.password_field :password, placeholder: "at least 8 characters"
-                = f.submit "sign in", :class => 'btn btn-warning'
+                = f.submit "sign in", :class => 'btn btn-edswap'
           .col-md-6.col-sm-12
             .thumbnail.sign-in-box
               %h2 Create an Account
               = form_for @user, url: url_for(controller: 'users', action: "create") do |f|
                 = f.text_field :preferred_email, placeholder: "email", required: true
                 = f.password_field :password, placeholder: "at least 8 characters", required: true
-                = f.submit value: "register", :class => 'btn btn-warning'
+                = f.submit value: "register", :class => 'btn btn-edswap'
         .row
           .col-lg-12
             .disclaimer

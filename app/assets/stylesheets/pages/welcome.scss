@@ -13,14 +13,23 @@
 }
 
 .jumbotron {
-  background-color: $lt-tan;
+  //background-color: $lt-tan;
+  background-color: $background;
 }
 
 .container {
-  width: 100%;
+  //width: 100%;
   padding: 0px;
   .recent-ads {
-    background-color: $lt-rose;
+    background-color: $main;
     padding: 20px;
   }
 }
+
+.recent-ads h3 {
+  color: white;
+  font-size: 2em;
+  margin-bottom: 40px;
+  text-align: center;
+}
+

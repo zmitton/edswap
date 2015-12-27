@@ -1,5 +1,29 @@
-<h1>New Listing</h1>
+<h1>Create a Listing</h1>
 
-<%= render 'form' %>
+/<%= render 'form' %>
 
-<%= link_to 'Back', listings_path %>
+/<%= link_to 'Back', listings_path %>
+
+%form
+  %h3 You are logged in as #{current_user.nickname}
+
+  Contact Name:
+  %br
+    %input{:name => "name", :type => "text"}
+  Email:
+  %br
+    %input{:name => "email", :type => "text"}
+  Phone Number:
+  %br
+    %input{:name => "phone", :type => "text"}
+  Title:
+  %br
+    %input{:name => "title", :type => "text"}
+  Category:
+  %br
+    %input{:name => "category", :type => "text"}
+  Description:
+  %br
+    %input{:name => "description", :type => "text"}
+
+  Upload Photo
