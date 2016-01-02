@@ -1,38 +1,51 @@
-// Place all the styles related to the login controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+  // Place all the styles related to the login controller here.
+  // They will automatically be included in application.css.
+  // You can use Sass (SCSS) here: http://sass-lang.com/
+#login_new{
+  .login-form {
+    margin: 0 auto;
+    padding: 15px;
+    max-width: 450px;
+    background: $sage;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
 
-.login-form {
-  margin: 0 auto;
-  padding: 15px;
-  max-width: 450px;
-  background: $sage;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+  }
 
-}
+  .login-submit {
+    background-color: $rose;
+    color: white;
+  }
 
-.login-submit {
-  background-color: $rose;
-  color: white;
-}
+  .login-input {
+    margin-bottom: 20px;
+  }
 
-.login-input {
-  margin-bottom: 20px;
-}
+  .thumbnail.sign-in-box {
+    height: 300px;
+    background-color: white;
+    box-shadow: 0px 7px 47px -13px rgba(0,0,0,0.75);
+  }
 
-.thumbnail.sign-in-box {
-  height: 300px;
-  background-color: white;
-  box-shadow: 0px 7px 47px -13px rgba(0,0,0,0.75);
-}
+  .jumbotron h1, h2 {
+    margin-bottom: 50px;
+  }
 
-.jumbotron h1, h2 {
-  margin-bottom: 50px;
-}
+  .thumbnail h6 {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 25px;
+  }
 
-.thumbnail h6 {
-  max-width: 400px;
-  margin: 0 auto;
-  margin-top: 25px;
+  a{
+    width: 200px;
+  }
+
+  .fa.fa-facebook, .fa.fa-google{
+    padding-right: 5px;
+  }
+
+  input{
+    height: 34px;
+  }
 }

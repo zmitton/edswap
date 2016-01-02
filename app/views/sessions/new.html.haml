@@ -1,4 +1,4 @@
-%header.jumbotron.hero-spacer.text-center
+%header.jumbotron.hero-spacer.text-center#login_new
   .row
     .col-lg-12
       - if current_user
@@ -11,8 +11,12 @@
             .thumbnail.sign-in-box
               %h2 Sign in
               %div.social-icons
-                %a.btn.btn-primary.btn-large.btn-text.fa.fa-facebook{id: "sign_in_with_facebook", href: "/auth/facebook"} Sign in with Facebook
-                %a.btn.btn-danger.btn-large.btn-text.fa.fa-google{id: "sign_in_with_google", href: "/auth/google_oauth2"} Sign in with Google
+                %a.btn.btn-primary.btn-large.btn-text{id: "sign_in_with_facebook", href: "/auth/facebook"}
+                  %span.fa.fa-facebook
+                  Sign in with Facebook
+                %a.btn.btn-danger.btn-large.btn-text{id: "sign_in_with_google", href: "/auth/google_oauth2"}
+                  %span.fa.fa-google
+                  Sign in with Google
               = form_for @user, url: url_for(controller: 'sessions', action: "create") do |f|
                 = f.text_field :preferred_email, placeholder: "email"
                 = f.password_field :password, placeholder: "at least 8 characters"
@@ -23,7 +27,9 @@
               = form_for @user, url: url_for(controller: 'users', action: "create") do |f|
                 = f.text_field :preferred_email, placeholder: "email", required: true
                 = f.password_field :password, placeholder: "at least 8 characters", required: true
+                = f.text_field :name, placeholder: "name"
                 = f.submit value: "register", :class => 'btn btn-warning'
+
         .row
           .col-lg-12
             .disclaimer

@@ -15,7 +15,7 @@
         Hi #{current_user.nickname}
       %ul.nav.navbar-nav.navbar-right
         %li= link_to "Browse", listings_path
-          %li= link_to "Feedback"
+        %li= link_to "Feedback"
         - if current_user
           %li= link_to "+ New Listing", new_listing_path
           %li= link_to "My Account", user_edit_path(session[:user_id])
@@ -27,3 +27,5 @@
     - flash.each do |name, msg|
       = content_tag :div, msg, class: "alert alert-info"
     = yield
+  %footer
+
