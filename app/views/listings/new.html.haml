@@ -1,29 +1,38 @@
-<h1>Create a Listing</h1>
+%h3 You are logged in as #{current_user.nickname}
+#user_preferences_div
+  %form#user_preferences_form.disabled
+    %h2 Preferences:
+    Contact Name:
+    %br
+      %input{:name => "name", :type => "text", value: "#{current_user.try('name') || ''}"}
+    Email:
+    %br
+      %input{:name => "email", :type => "text", value: "#{current_user.try('email') || ''}"}
+    Preferred Contact Method:
+    %br
+      %div#preferred_contact_section
+        %label{for: "text_button"}
+          %input#text_button{type: 'radio', name: 'preferred_contact', value: 'text'}
+            text
+        %label{for: "call_button"}
+          %input#call_button{type: 'radio', name: 'preferred_contact', value: 'call'}
+            call
+            %input#phone_box{:name => "phone", :type => "text", placeholder: 'phone number', disabled: true, value: "#{current_user.try('phone') || ''}"}
+        %label{for: "email_button"}
+          %input#email_button{type: 'radio', name: 'preferred_contact', value: 'email'}
+            email
+            %input#email_box{:name => "email", :type => "text", placeholder: 'preferred email ', disabled: true, value: "#{current_user.try('email') || ''}"}
 
-/<%= render 'form' %>
+#create_listing_div
+  %h3 Create new listing
+  %form#create_listing_form
+    Title:
+    %br
+      %input{:name => "title", :type => "text"}
+    Description:
+    %br
+      %textarea{:name => "description", :type => "text"}
+    Upload Photo:
+    %br
+      %input{:name => "picture", :type => "file"}
 
-/<%= link_to 'Back', listings_path %>
-
-%form
-  %h3 You are logged in as #{current_user.nickname}
-
-  Contact Name:
-  %br
-    %input{:name => "name", :type => "text"}
-  Email:
-  %br
-    %input{:name => "email", :type => "text"}
-  Phone Number:
-  %br
-    %input{:name => "phone", :type => "text"}
-  Title:
-  %br
-    %input{:name => "title", :type => "text"}
-  Category:
-  %br
-    %input{:name => "category", :type => "text"}
-  Description:
-  %br
-    %input{:name => "description", :type => "text"}
-
-  Upload Photo
