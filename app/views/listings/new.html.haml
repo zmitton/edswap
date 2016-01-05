@@ -1,37 +1,41 @@
+<<<<<<< HEAD
 %h1.text-center Create a Listing
+=======
+%h3 You are logged in as #{current_user.nickname}
+#user_preferences_div
+  %form#user_preferences_form.disabled
+    %h2 Preferences:
+    Contact Name:
+    %br
+      %input{:name => "name", :type => "text", value: "#{current_user.try('name') || ''}"}
+    Email:
+    %br
+      %input{:name => "email", :type => "text", value: "#{current_user.try('email') || ''}"}
+    Preferred Contact Method:
+    %br
+      %div#preferred_contact_section
+        %label{for: "text_button"}
+          %input#text_button{type: 'radio', name: 'preferred_contact', value: 'text'}
+            text
+        %label{for: "call_button"}
+          %input#call_button{type: 'radio', name: 'preferred_contact', value: 'call'}
+            call
+            %input#phone_box{:name => "phone", :type => "text", placeholder: 'phone number', disabled: true, value: "#{current_user.try('phone') || ''}"}
+        %label{for: "email_button"}
+          %input#email_button{type: 'radio', name: 'preferred_contact', value: 'email'}
+            email
+            %input#email_box{:name => "email", :type => "text", placeholder: 'preferred email ', disabled: true, value: "#{current_user.try('email') || ''}"}
 
-/<%= render 'form' %>
-
-/<%= link_to 'Back', listings_path %>
-
-%form
-  %h4.text-center You are logged in as #{current_user.nickname}
-  .container.new-form
-    %label Contact Name:
-    %input{:name => "name", :type => "text"}
-    <br>
-    %label Email:
-    %input{:name => "email", :type => "text"}
-    <br>
-    %label Phone Number:
-    %input{:name => "phone", :type => "text"}
-    <br>
-    %label Title:
-    %input{:name => "title", :type => "text"}
-    <br>
-    %label Category:
-    %input{:name => "category", :type => "text"}
-    <br>
-    %label Description:
-    %input{:name => "description", :type => "text"}
-    <br>
-    %label price
-    %input{:name => "price", :type => "text"}
-    <br>
-    %label location:
-    %input{:name => "location", :type => "text"}
-    <br>
-
-  %p.text-center Upload Photo
-  %input{:type => "submit", :class => "btn btn-edswap", :value => "submit"}/
-
+#create_listing_div
+  %h3 Create new listing
+  %form#create_listing_form
+    Title:
+    %br
+      %input{:name => "title", :type => "text"}
+    Description:
+    %br
+      %textarea{:name => "description", :type => "text"}
+    Upload Photo:
+    %br
+      %input{:name => "picture", :type => "file"}
+      %input{:type => "submit", :class => "btn btn-edswap", :value => "submit"}/
