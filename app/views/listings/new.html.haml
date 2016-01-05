@@ -1,29 +1,37 @@
-<h1>Create a Listing</h1>
+%h1.text-center Create a Listing
 
 /<%= render 'form' %>
 
 /<%= link_to 'Back', listings_path %>
 
 %form
-  %h3 You are logged in as #{current_user.nickname}
-
-  Contact Name:
-  %br
+  %h4.text-center You are logged in as #{current_user.nickname}
+  .container.new-form
+    %label Contact Name:
     %input{:name => "name", :type => "text"}
-  Email:
-  %br
+    <br>
+    %label Email:
     %input{:name => "email", :type => "text"}
-  Phone Number:
-  %br
+    <br>
+    %label Phone Number:
     %input{:name => "phone", :type => "text"}
-  Title:
-  %br
+    <br>
+    %label Title:
     %input{:name => "title", :type => "text"}
-  Category:
-  %br
+    <br>
+    %label Category:
     %input{:name => "category", :type => "text"}
-  Description:
-  %br
+    <br>
+    %label Description:
     %input{:name => "description", :type => "text"}
+    <br>
+    %label price
+    %input{:name => "price", :type => "text"}
+    <br>
+    %label location:
+    %input{:name => "location", :type => "text"}
+    <br>
 
-  Upload Photo
+  %p.text-center Upload Photo
+  %input{:type => "submit", :class => "btn btn-edswap", :value => "submit"}/
+
