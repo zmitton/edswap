@@ -38,6 +38,7 @@ nav.navbar.nav-pills {
   z-index: 999999;
   color: white;
   font-size: 1.1em;
+  padding: 0px 60px 0px 60px;
   li a {
     color: white;
   }
@@ -81,6 +82,7 @@ nav.navbar.nav-pills {
   color: white;
   border-color: none;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  min-width: 165px;
     &:visited {
       color: white;
     }
@@ -89,4 +91,41 @@ nav.navbar.nav-pills {
       background-color: white;
       transition: all 1s ease 0s;
   }
+}
+
+footer {
+  background-color: $dk-main;
+  color: white;
+  padding: 20px;
+}
+
+label {
+  float: left;
+  width: 30%;
+  text-align: right;
+  margin-right: 0.5em;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+input {
+  min-width: 300px;
+  min-height: 40px;
+}
+
+label {
+  font-size: 1.2em;
+  font-weight: 200;
+  padding-top: 7px;
+}
+
+.jumbotron.jumbotron h1 {
+  max-width: 650px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+  margin-bottom: 0px;
 }

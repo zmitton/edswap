@@ -18,7 +18,7 @@
 }
 
 .container {
-  //width: 100%;
+  width: 100%;
   padding: 0px;
   .recent-ads {
     background-color: $main;
@@ -27,9 +27,17 @@
 }
 
 .recent-ads h3 {
-  color: white;
+  color: $main-text;
   font-size: 2em;
   margin-bottom: 40px;
   text-align: center;
 }
 
+#mc_embed_signup_scroll h2 {
+  padding-top: 25px;
+  color: $main-text;
+}
+
+.mc-field-group {
+  padding-bottom: 25px;
+}

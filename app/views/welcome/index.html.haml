@@ -1,52 +1,46 @@
 %header.jumbotron.hero-spacer.text-center
-  %h1 What is edSwap?
-  %p edSwap is a FREE, teacher-to-teacher platform
-  %p More than a marketplace, it's a community.
+  %h1 Find what you need, swap what you don't
+  %a.btn.btn-edswap{:href => listings_path} Browse
 
   / Title
 .container.recent-ads
   .row
     .col-lg-12
-      %h3 Recent Posts
-  / .row
-  / Page Features
+      %h2.text-center What is edSwap?
   .row.text-center
-    .col-md-3.col-sm-6.hero-feature
+    .col-md-4.col-sm-6.hero-feature
       .thumbnail
         %img{:alt => "", :src => "http://placehold.it/800x500"}
           .caption
-            %h3 Title
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            %p
-              %a.btn.btn-edswap{:href => "#"} View Ad
-    .col-md-3.col-sm-6.hero-feature
+            %h3 Post what you don't use
+    .col-md-4.col-sm-6.hero-feature
       .thumbnail
         %img{:alt => "", :src => "http://placehold.it/800x500"}
           .caption
-            %h3 Title
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            %p
-              %a.btn.btn-edswap{:href => "#"} View Ad
-    .col-md-3.col-sm-6.hero-feature
+            %h3 Meet up
+    .col-md-4.col-sm-6.hero-feature
       .thumbnail
         %img{:alt => "", :src => "http://placehold.it/800x500"}
           .caption
-            %h3 Title
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            %p
-              %a.btn.btn-edswap{:href => "#"} View Ad
-    .col-md-3.col-sm-6.hero-feature
-      .thumbnail
-        %img{:alt => "", :src => "http://placehold.it/800x500"}
-          .caption
-            %h3 Feature Label
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            %p
-              %a.btn.btn-edswap{:href => "#"} View Ad
+            %h3 Find what you need
 
+//subscription form mailchimp
+#mc_embed_signup
+  %form#mc-embedded-subscribe-form.validate{:action => "//edswap.us12.list-manage.com/subscribe/post?u=88eca20c5e3336df2621664ee&amp;id=99405d0df5", :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
+    #mc_embed_signup_scroll
+      %h2.text-center Receive updates about the release of edSwap
+      .mc-field-group
+        %label{:for => "mce-EMAIL"} Email Address
+        %input#mce-EMAIL.required.email{:name => "EMAIL", :type => "email", :value => ""}
+        %input#mc-embedded-subscribe.btn.btn-edswap{:name => "subscribe", :type => "submit", :value => "Join"}/
+        %script{:src => "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js", :type => "text/javascript"}
+      #mce-responses.clear
+        #mce-error-response.response{:style => "display:none"}
+        #mce-success-response.response{:style => "display:none"}
+      / real people should not fill this in and expect good things - do not remove this or risk form bot signups
+      %div{"aria-hidden" => "true", :style => "position: absolute; left: -5000px;"}
+        %input{:name => "b_88eca20c5e3336df2621664ee_99405d0df5", :tabindex => "-1", :type => "text", :value => ""}/
+      .clear
 
-%footer
-  .row
-    .col-lg-12
-      %p.text-right Copyright &copy; edSwap 2015
-
+:javascript
+  (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);/

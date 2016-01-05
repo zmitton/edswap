@@ -1,7 +1,10 @@
 .listings {
   padding: 0px 50px 0px 50px;
   background-color: $main;
-  color: white;
+  color: $main-text;
   margin-top: 15px;
 }
 
+.new-form {
+  padding-left: 25%;
+}
