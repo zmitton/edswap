@@ -14,7 +14,9 @@
 
 .jumbotron {
   //background-color: $lt-tan;
-  background-color: $background;
+  background-color: white;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .container {
@@ -40,4 +42,9 @@
 
 .mc-field-group {
   padding-bottom: 25px;
+}
+
+#mc_embed_signup_scroll {
+  padding-top: 150px;
+  padding-bottom: 150px;
 }

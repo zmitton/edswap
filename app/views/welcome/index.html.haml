@@ -1,28 +1,50 @@
 %header.jumbotron.hero-spacer.text-center
-  %h1 Find what you need, swap what you don't
+  %h1 Find what you NEED, SWAP what you don't
   %a.btn.btn-edswap{:href => listings_path} Browse
 
   / Title
-.container.recent-ads
-  .row
-    .col-lg-12
-      %h2.text-center What is edSwap?
-  .row.text-center
-    .col-md-4.col-sm-6.hero-feature
-      .thumbnail
-        %img{:alt => "", :src => "http://placehold.it/800x500"}
-          .caption
-            %h3 Post what you don't use
-    .col-md-4.col-sm-6.hero-feature
-      .thumbnail
-        %img{:alt => "", :src => "http://placehold.it/800x500"}
-          .caption
-            %h3 Meet up
-    .col-md-4.col-sm-6.hero-feature
-      .thumbnail
-        %img{:alt => "", :src => "http://placehold.it/800x500"}
-          .caption
-            %h3 Find what you need
+/ .container.recent-ads
+/   .row
+/     .col-lg-12
+/       %h2.text-center What is edSwap?
+/   .row.text-center
+/     .col-md-4.col-sm-6.hero-feature
+/       .thumbnail
+/         %img{:alt => "", :src => "http://placehold.it/800x500"}
+/           .caption
+/             %h3 POST
+/     .col-md-4.col-sm-6.hero-feature
+/       .thumbnail
+/         %img{:alt => "", :src => "http://placehold.it/800x500"}
+/           .caption
+/             %h3 MEET
+/     .col-md-4.col-sm-6.hero-feature
+/       .thumbnail
+/         %img{:alt => "", :src => "http://placehold.it/800x500"}
+/           .caption
+/             %h3 SWAP
+%section#services
+  .container.recent-ads
+    .row
+      .col-lg-12.text-center
+        %h2.section-heading What is edSwap?
+    .row.text-center
+      .col-md-4
+        %span.fa-stack.fa-4x
+          %i.fa.fa-square.fa-stack-2x.text-primary
+          %i.fa.fa-list.fa-stack-1x.fa-inverse
+        %h4 POST
+      .col-md-4
+        %span.fa-stack.fa-4x
+          %i.fa.fa-square.fa-stack-2x.text-primary
+          %i.fa.fa-users.fa-stack-1x.fa-inverse
+        %h4 MEET
+      .col-md-4
+        %span.fa-stack.fa-4x
+          %i.fa.fa-square.fa-stack-2x.text-primary
+          %i.fa.fa-refresh.fa-spin.fa-stack-1x.fa-inverse
+        %h4 SWAP
+
 
 //subscription form mailchimp
 #mc_embed_signup
