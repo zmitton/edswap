@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 %h1.text-center Create a Listing
-=======
 %h3 You are logged in as #{current_user.nickname}
 #user_preferences_div
   %form#user_preferences_form.disabled
@@ -28,14 +26,11 @@
 
 #create_listing_div
   %h3 Create new listing
-  %form#create_listing_form
+  = form_for @listing, url: url_for(controller: 'listings', action: "create", class: "create_listing_form") do |f|  
     Title:
-    %br
-      %input{:name => "title", :type => "text"}
+    = f.text_field :subject
     Description:
-    %br
-      %textarea{:name => "description", :type => "text"}
+    = f.text_area :body
     Upload Photo:
-    %br
-      %input{:name => "picture", :type => "file"}
-      %input{:type => "submit", :class => "btn btn-edswap", :value => "submit"}/
+    = f.file_field :picture
+    = f.submit :submit, class: "btn btn-edswap", value: "submit"

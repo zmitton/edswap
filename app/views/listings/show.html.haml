@@ -1,24 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @listing.author %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @listing.type %>
-</p>
-
-<p>
-  <strong>Subject:</strong>
-  <%= @listing.subject %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @listing.body %>
-</p>
-
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
-<%= link_to 'Back', listings_path %>
+.row
+  .col-md-6.col-sm-12
+    %h1
+      = @listing.subject
+    %p
+      = @listing.body
+  .col-md-6.col-sm-12
+    -@listing.listing_images.each do |image|
+      = image_tag(image.path, width: "500px")

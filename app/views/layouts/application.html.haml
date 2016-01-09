@@ -10,12 +10,13 @@
   %nav.navbar.nav-pills
     .container
       .navbar-logo
-      =image_tag "white-logo.png", :height => "50"
-      - if current_user
-        Hi #{current_user.nickname}
+        %a{href: "/listings"}
+          = image_tag "white-logo.png", :height => "50"
+        - if current_user
+          Hi #{current_user.nickname}
       %ul.nav.navbar-nav.navbar-right
-        %li= link_to "Forums"
-        %li= link_to "Mission"
+        / %li= link_to "Forums"
+        %li= link_to "Mission", mission_path
         - if current_user
           %li= link_to "+ New Listing", new_listing_path
           %li= link_to "My Account", user_edit_path(session[:user_id])

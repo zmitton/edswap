@@ -1,83 +1,26 @@
-%table
-  %thead
-    - @listings.each do |listing|
-      %tr
 .container.listings
   .row
     .col-lg-12
       %h1.page-header
         %h1 Listings
         /%small Secondary Text
-  / /.row
-  / Listing One
-  .row
-    .col-md-7
-      %a{:href => "#"}
-        %img.img-responsive{:alt => "", :src => "http://placehold.it/700x300"}/
-    .col-md-5
-      %h3 Listing One
-      %h4 Subheading
-      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.
-      %a.btn.btn-edswap{:href => "#"}
-        View Listing
-        %span.glyphicon.glyphicon-chevron-right
-  / /.row
-  %hr/
-  / Listing Two
-  .row
-    .col-md-7
-      %a{:href => "#"}
-        %img.img-responsive{:alt => "", :src => "http://placehold.it/700x300"}/
-    .col-md-5
-      %h3 Listing Two
-      %h4 Subheading
-      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.
-      %a.btn.btn-edswap{:href => "#"}
-        View Listing
-        %span.glyphicon.glyphicon-chevron-right
-  / /.row
-  %hr/
-  / Listing Three
-  .row
-    .col-md-7
-      %a{:href => "#"}
-        %img.img-responsive{:alt => "", :src => "http://placehold.it/700x300"}/
-    .col-md-5
-      %h3 Listing Three
-      %h4 Subheading
-      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!
-      %a.btn.btn-edswap{:href => "#"}
-        View Listing
-        %span.glyphicon.glyphicon-chevron-right
-  / /.row
-  %hr/
-  / Listing Four
-  .row
-    .col-md-7
-      %a{:href => "#"}
-        %img.img-responsive{:alt => "", :src => "http://placehold.it/700x300"}/
-    .col-md-5
-      %h3 Listing Four
-      %h4 Subheading
-      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?
-      %a.btn.btn-edswap{:href => "#"}
-        View Listing
-        %span.glyphicon.glyphicon-chevron-right
-  / /.row
-  %hr/
-  / Listing Five
-  .row
-    .col-md-7
-      %a{:href => "#"}
-        %img.img-responsive{:alt => "", :src => "http://placehold.it/700x300"}/
-    .col-md-5
-      %h3 Listing Five
-      %h4 Subheading
-      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident ex quisquam hic odio repellendus atque porro distinctio quae id laboriosam facilis dolorum.
-      %a.btn.btn-edswap{:href => "#"}
-        View Listing
-        %span.glyphicon.glyphicon-chevron-right
-  / /.row
+  - @listings.each do |listing|
+    .row
+      .col-md-7
+        %a{:href => "#"}
+          = image_tag(listing.listing_images.first.path, class: "img-responsive", width: "500px")
+      .col-md-5
+        %h3
+          = listing.subject
+        %h4
+        %p 
+          = listing.body
+        %a.btn.btn-edswap{:href => listing_path(listing.id)}
+          View Listing
+          %span.glyphicon.glyphicon-chevron-right
+    / /.row
+    %hr/
+    / Listing Two
   %hr/
   / Pagination
   .row.text-center
