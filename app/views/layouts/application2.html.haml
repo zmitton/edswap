@@ -1,0 +1,32 @@
+!!! 5
+%html
+%head
+  %title edSwap
+  = stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+
+%body
+  %nav.navbar.nav-pills
+    .container
+      =image_tag "edswap-lower.png", :height => "50"
+      - if current_user
+        Hi #{current_user.nickname}
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to "Forums"
+        %li= link_to "Mission"
+        - if current_user
+          %li= link_to "+ New Listing", new_listing_path
+          %li= link_to "My Account", user_edit_path(session[:user_id])
+          %li= link_to "Sign out", signout_path, id: "sign_out"
+        - else
+          %li= link_to "+ New Listing", login_path(destination_uri: new_listing_path)
+          %li= link_to "Login / Sign up", login_path
+  .container
+    - flash.each do |name, msg|
+      = content_tag :div, msg, class: "alert alert-info"
+    = yield
+%footer
+  .row
+    .col-lg-12
+      %p.text-right Copyright &copy; edSwap 2015
