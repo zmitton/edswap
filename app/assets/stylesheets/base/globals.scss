@@ -27,6 +27,7 @@ nav.navbar.nav-pills {
   top: 0;
   left: 0;
   right: 0;
+  padding-top: 10px;
   -webkit-box-shadow: 1px 9px 17px -5px rgba(0,0,0,0.75);
   -moz-box-shadow: 1px 9px 17px -5px rgba(0,0,0,0.75);
   //box-shadow: 1px 9px 17px -5px rgba(0,0,0,0.75);
@@ -43,10 +44,13 @@ nav.navbar.nav-pills {
     color: $menu-text;
     text-transform: uppercase;
   }
+  img {
+    padding-top: 9px;
+  }
 }
 
 .navbar-right li a {
-  padding: 25px;
+  padding: 19px;
   font-size: 1.1em;
   //text-shadow: 1px 1px #333;
 }
@@ -59,8 +63,8 @@ nav.navbar.nav-pills {
 
 .nav>li>a:hover,
 .nav>li>a:focus {
-    text-decoration: none;
-    background-color: $contrast;
+  background-color: $contrast;
+  color: white;
 }
 
 #status a#sign_in_w_google,
