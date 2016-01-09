@@ -10,6 +10,7 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    @listing = Listing.find(params[:id])
   end
 
   # GET /listings/new
@@ -24,18 +25,23 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
+    name = "#{SecureRandom.uuid}.#{params[:listing][:picture].original_filename.split(".").last}"
+    path = File.join("public#{ListingImage.directory}", name)
+    File.open(path, "wb") { |f| f.write(params[:listing][:picture].read) }
+    flash[:notice] = "File uploaded"
+
     @listing = Listing.new(listing_params)
 
-    respond_to do |format|
-      if @listing.save
-        format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
-        format.json { render :show, status: :created, location: @listing }
-      else
-        format.html { render :new }
-        format.json { render json: @listing.errors, status: :unprocessable_entity }
-      end
+    if @listing.save
+      image = ListingImage.create(filename: name, listing_id: @listing.id)
+      redirect_to listing_path(@listing.id), notice: 'Listing was successfully created.'
+    else
+      flash.now[:notice] = @listing.errors.messages
+      render "listings/new"
     end
   end
+
+
 
   # PATCH/PUT /listings/1
   # PATCH/PUT /listings/1.json

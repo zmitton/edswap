@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   def verify_password
     if provider != 'facebook' && provider != 'google_oauth2'
-      if password.length < 6
+      if !password || password.length < 6
         errors.add(:password, "Password must be at least 8 characters")
       end
     end
@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
 
       user.oauth_email = auth.info.email
+      user.save
     end
   end
 
@@ -42,10 +43,10 @@ class User < ActiveRecord::Base
       if temp_user.authenticate(user_params[:password])
         user = temp_user
       else
-        errors.add(:forbidden, 'password incorrect')
+        user.errors.add(:forbidden, 'password incorrect')
       end
     else
-      errors.add(:not_found, 'email not found in our system')
+      user.errors.add(:not_found, 'email not found in our system')
     end
     user
   end

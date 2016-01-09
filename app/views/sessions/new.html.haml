@@ -25,8 +25,8 @@
             .thumbnail.sign-in-box
               %h2 Create an Account
               = form_for @user, url: url_for(controller: 'users', action: "create") do |f|
-                = f.text_field :preferred_email, placeholder: "email", required: true
-                = f.password_field :password, placeholder: "at least 8 characters", required: true
+                = f.text_field :preferred_email, placeholder: "email"
+                = f.password_field :password, placeholder: "at least 8 characters"
                 = f.text_field :name, placeholder: "name"
                 = f.submit value: "register", :class => 'btn btn-warning'
         .row

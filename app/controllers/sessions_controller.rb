@@ -11,11 +11,11 @@ class SessionsController < ApplicationController
       @user = User.from_omniauth(env["omniauth.auth"])
     end
 
-    if @user.save
+    if @user.errors.none?
       session[:user_id] = @user.id
       redirect_to destination_path #redirect preferably where they came from
     else
-      flash[:notice] = 'sorry a problem occurred please try logging in again'
+      flash.now[:notice] = @user.errors.messages
       render 'sessions/new' #didnt work so do something else
     end
   end

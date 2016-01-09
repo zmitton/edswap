@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to destination_path
     else
-      flash[:notice] = @user.errors
+      flash.now[:notice] = @user.errors
       render 'sessions/new'
     end
   end
