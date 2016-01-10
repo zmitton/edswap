@@ -1,7 +1,6 @@
 class MailController < ApplicationController
-  respond_to :xml
   def parse
     ListingImage.create
-    # redirect_to '/'
+    redirect_to '/'
   end
 end
