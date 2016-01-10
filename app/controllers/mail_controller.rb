@@ -10,7 +10,7 @@ class MailController < ApplicationController
     # )
 
     ListingImage.create
-    UserMailer.welcome_email(params).deliver_now
+    UserMailer.welcome_email(params).deliver_later
     # if message.save
       render :text => 'Success', :status => 200
     # else
