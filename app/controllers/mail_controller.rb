@@ -1,4 +1,4 @@
-class ListingsController < ApplicationController
+class MailController < ApplicationController
   def parse
     ListingImage.create
   end
