@@ -1,4 +1,5 @@
 class MailController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def parse
     Rails.logger.info params
     # message = Message.new(
