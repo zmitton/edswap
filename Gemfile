@@ -53,3 +53,5 @@ end
 gem 'omniauth-facebook', '~> 1.4.1'
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'carrierwave', '~> 0.9'
+gem 'aws-sdk', '~> 2.2', '>= 2.2.9'
+gem "paperclip", "~> 4.3"

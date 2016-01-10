@@ -8,7 +8,7 @@
     .row
       .col-md-7
         %a{:href => "#"}
-          = image_tag(listing.listing_images.first.path, class: "img-responsive", width: "500px")
+          = image_tag(listing.main_image.path, class: "img-responsive", width: "500px")
       .col-md-5
         %h3
           = listing.subject

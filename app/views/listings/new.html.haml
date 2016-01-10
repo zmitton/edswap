@@ -3,14 +3,14 @@
 #user_preferences_div
   %form#user_preferences_form.disabled
     %h2 Preferences:
-    Contact Name:
-    %br
+    %label
+      Contact Name
       %input{:name => "name", :type => "text", value: "#{current_user.try('name') || ''}"}
-    Email:
-    %br
+    %label
+      Email:
       %input{:name => "email", :type => "text", value: "#{current_user.try('email') || ''}"}
-    Preferred Contact Method:
-    %br
+    %label
+      Preferred Contact Method:
       %div#preferred_contact_section
         %label{for: "text_button"}
           %input#text_button{type: 'radio', name: 'preferred_contact', value: 'text'}
@@ -27,10 +27,30 @@
 #create_listing_div
   %h3 Create new listing
   = form_for @listing, url: url_for(controller: 'listings', action: "create", class: "create_listing_form") do |f|  
-    Title:
-    = f.text_field :subject
-    Description:
-    = f.text_area :body
-    Upload Photo:
-    = f.file_field :picture
+    %label
+      Title
+      = f.text_field :subject, id: "title_box"
+    / %label
+    /   I'd like to:
+    / %label{for: "lend_box"}
+    /   Lend
+    /   = f.check_box :type ,value: "lend", id: "lend_box"
+    / %label{for: "sell_box"}
+    /   Sell
+    /   = f.check_box :type ,value: "sell", id: "sell_box"
+    / %label{for: "buy_box"}
+    /   Buy
+    /   = f.check_box :type ,value: "buy", id: "buy_box"
+    / %label{for: "borrow_box"}
+    /   Borrow
+    /   = f.check_box :type ,value: "borrow", id: "borrow_box"
+    / %label{for: "trade_box"}
+    /   Trade
+    /   = f.check_box :type ,value: "trade", id: "trade_box"
+    %label
+      Description:
+      = f.text_area :body
+    %label
+      Upload Photo:
+      = f.file_field :picture
     = f.submit :submit, class: "btn btn-edswap", value: "submit"

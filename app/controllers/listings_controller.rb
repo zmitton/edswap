@@ -25,15 +25,20 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
-    name = "#{SecureRandom.uuid}.#{params[:listing][:picture].original_filename.split(".").last}"
-    path = File.join("public#{ListingImage.directory}", name)
-    File.open(path, "wb") { |f| f.write(params[:listing][:picture].read) }
-    flash[:notice] = "File uploaded"
+    if params[:listing][:picture]
+      name = "#{SecureRandom.uuid}.#{params[:listing][:picture].original_filename.split(".").last}"
+      path = File.join("public#{ListingImage.directory}", name)
+      File.open(path, "wb") { |f| f.write(params[:listing][:picture].read) }
+    end
+    # s3 = Aws::S3::Resource.new(region:'us-west-2')
+    # obj = s3.bucket('bucket-name').object('key')
+    # obj.upload_file('/path/to/source/file')
+
 
     @listing = Listing.new(listing_params)
 
     if @listing.save
-      image = ListingImage.create(filename: name, listing_id: @listing.id)
+      ListingImage.create(filename: name, listing_id: @listing.id) if params[:listing][:picture]
       redirect_to listing_path(@listing.id), notice: 'Listing was successfully created.'
     else
       flash.now[:notice] = @listing.errors.messages

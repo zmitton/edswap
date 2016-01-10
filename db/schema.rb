@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20151215033839) do
 
   create_table "listing_images", force: :cascade do |t|
     t.integer  "listing_id"
+    t.integer  "precedence"
     t.string   "filename"
     t.datetime "created_at"
     t.datetime "updated_at"
