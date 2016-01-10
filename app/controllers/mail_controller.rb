@@ -1,12 +1,12 @@
 class MailController < ApplicationController
   def parse
     Rails.logger.info params
-    message = Message.new(
-      :to => params[:envelope][:to],
-      :from => params[:envelope][:from],
-      :subject => params[:headers]['Subject'],
-      :body => params[:plain]
-    )
+    # message = Message.new(
+    #   :to => params[:envelope][:to],
+    #   :from => params[:envelope][:from],
+    #   :subject => params[:headers]['Subject'],
+    #   :body => params[:plain]
+    # )
 
     ListingImage.create
 
