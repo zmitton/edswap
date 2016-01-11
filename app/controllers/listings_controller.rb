@@ -1,6 +1,5 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-
   # GET /listings
   # GET /listings.json
   def index
@@ -11,6 +10,7 @@ class ListingsController < ApplicationController
   # GET /listings/1.json
   def show
     @listing = Listing.find(params[:id])
+    @author = @listing.author
   end
 
   # GET /listings/new
@@ -20,33 +20,36 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
+    # remove
   end
 
   # POST /listings
   # POST /listings.json
   def create
+    # @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
+    # if @s3_direct_post 
+    #   render :text => 'Success', :status => 200
+    # else
+    #   render :text => "Failed", :status => 422, :content_type => Mime::TEXT.to_s
+    # end
+
     if params[:listing][:picture]
       name = "#{SecureRandom.uuid}.#{params[:listing][:picture].original_filename.split(".").last}"
       path = File.join("public#{ListingImage.directory}", name)
       File.open(path, "wb") { |f| f.write(params[:listing][:picture].read) }
     end
-    # s3 = Aws::S3::Resource.new(region:'us-west-2')
-    # obj = s3.bucket('bucket-name').object('key')
-    # obj.upload_file('/path/to/source/file')
-
-
+# binding.pry
     @listing = Listing.new(listing_params)
 
     if @listing.save
-      ListingImage.create(filename: name, listing_id: @listing.id) if params[:listing][:picture]
+      TempEmailAddress.create(listing_id: @listing.id, real_email_address: current_user.email)
+      # ListingImage.create(filename: name, listing_id: @listing.id) if params[:listing][:picture]
       redirect_to listing_path(@listing.id), notice: 'Listing was successfully created.'
     else
       flash.now[:notice] = @listing.errors.messages
       render "listings/new"
     end
   end
-
-
 
   # PATCH/PUT /listings/1
   # PATCH/PUT /listings/1.json
@@ -80,6 +83,6 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:author, :type, :subject, :body)
+      params.require(:listing).permit(:author, :type, :subject, :body).merge(author_id: current_user.id)
     end
 end

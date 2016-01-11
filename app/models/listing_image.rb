@@ -4,7 +4,7 @@ class ListingImage < ActiveRecord::Base
   end
 
   def self.directory
-    "/images/uploads/"
+    "/"
   end
 
   

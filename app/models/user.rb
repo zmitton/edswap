@@ -7,6 +7,11 @@ class User < ActiveRecord::Base
       errors.add(:email, 'address already registered')
     end
   end
+
+  def preferred_contact
+    email || nil
+  end
+
   def nickname
     name == "" || name.nil? ? email : name
   end

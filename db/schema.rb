@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215033839) do
+ActiveRecord::Schema.define(version: 20160110212811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,13 +25,24 @@ ActiveRecord::Schema.define(version: 20151215033839) do
   end
 
   create_table "listings", force: :cascade do |t|
-    t.integer  "author"
-    t.string   "type"
+    t.integer  "author_id"
+    t.string   "intension"
     t.string   "subject"
     t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "temp_email_addresses", force: :cascade do |t|
+    t.integer  "listing_id"
+    t.string   "real_email_address"
+    t.uuid     "temp_email_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "temp_email_addresses", ["listing_id"], name: "index_temp_email_addresses_on_listing_id", using: :btree
+  add_index "temp_email_addresses", ["temp_email_address"], name: "index_temp_email_addresses_on_temp_email_address", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"

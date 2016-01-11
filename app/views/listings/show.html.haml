@@ -2,8 +2,15 @@
   .col-md-6.col-sm-12
     %h1
       = @listing.subject
+    %h2
+      Author:
+      = @author.name
+    %h3
+      Contact at:
+      = @author.preferred_contact
     %p
       = @listing.body
   .col-md-6.col-sm-12
+    = image_tag(@listing.main_image, width: "500px")
     -@listing.listing_images.each do |image|
       = image_tag(image.path, width: "500px")

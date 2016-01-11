@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   get 'users/:id',      to: 'users#show', as: 'user'
   get 'users/:id/edit', to: 'users#edit', as: 'user_edit'
   post 'users', to: 'users#create', as: 'user_create'
-  post 'mail', to: 'mail#parse', as: 'mail'
-  get 'mail', to: 'mail#parse', as: 'mailing'
+  post 'mail', to: 'mail#route', as: 'mail'
+  get 'mail', to: 'mail#route', as: 'mailing'
 
   resources :listings
   # The priority is based upon order of creation: first created -> highest priority.
