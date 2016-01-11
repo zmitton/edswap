@@ -3,6 +3,6 @@ class TempEmailAddress < ActiveRecord::Base
   before_save :generate_temp_email_address
 
   def generate_temp_email_address
-    temp_email_address = SecureRandom.uuid
+    self.temp_email_address = SecureRandom.uuid
   end
 end

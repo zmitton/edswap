@@ -7,8 +7,9 @@ class MailController < ApplicationController
     #   :subject => params[:headers]['Subject'],
     #   :body => params[:plain]
     # )
+
     to_temp_address = TempEmailAddress.find_by_temp_email_address(to)
-    if to_temp_address
+    if to_temp_address && to_temp_address.listing.active
       TempEmailAddress.find_or_create_by(listing_id: to_temp_address.listing_id, real_email_address: from)
       UserMailer.welcome_email(params, to_temp_address.real_email_address).deliver_now
       render :text => 'Success', :status => 200
@@ -20,7 +21,7 @@ class MailController < ApplicationController
   private
 
   def to
-    params[:envelope].try(:to)
+    params[:envelope][:to].split("@").first
   end
 
   def from

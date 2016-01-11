@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110212811) do
+ActiveRecord::Schema.define(version: 20160111180137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,8 +29,26 @@ ActiveRecord::Schema.define(version: 20160110212811) do
     t.string   "intension"
     t.string   "subject"
     t.text     "body"
+    t.boolean  "active"
+    t.boolean  "buying"
+    t.boolean  "selling"
+    t.boolean  "lending"
+    t.boolean  "trading"
+    t.boolean  "borrowing"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string  "locationeable_type"
+    t.integer "locationeable_id"
+    t.string  "school_name"
+    t.string  "address"
+    t.string  "city"
+    t.string  "state"
+    t.string  "zip"
+    t.string  "x_coord"
+    t.string  "y_coord"
   end
 
   create_table "temp_email_addresses", force: :cascade do |t|
@@ -53,6 +71,7 @@ ActiveRecord::Schema.define(version: 20160110212811) do
     t.string   "preferred_email"
     t.string   "password_digest"
     t.datetime "oauth_expires_at"
+    t.boolean  "teacher"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end

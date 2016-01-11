@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    @user = User.new
+    @user = User.new.setup
     session[:destination_uri] = params[:destination_uri]
   end
 

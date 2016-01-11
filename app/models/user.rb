@@ -1,6 +1,14 @@
 class User < ActiveRecord::Base
-  has_secure_password validations: false
+  has_secure_password
   validate :unique_email
+
+  has_one :location, as: :locationeable
+  accepts_nested_attributes_for :location
+
+  def setup
+    self.location ||= Location.new
+    self
+  end
 
   def unique_email
     if !User.where.not(id: id).where(provider: 'edswap', preferred_email: preferred_email).blank?
@@ -63,6 +71,7 @@ class User < ActiveRecord::Base
     user.provider = "edswap"
     user.verify_password
 
+    user.teacher = user_params[:teacher]
     user.uid = nil
     user.name = user_params[:name]
     user.oauth_token = nil

@@ -5,6 +5,13 @@ class CreateListings < ActiveRecord::Migration
       t.string :intension
       t.string :subject
       t.text :body
+      t.boolean :active
+
+      t.boolean :buying
+      t.boolean :selling
+      t.boolean :lending
+      t.boolean :trading
+      t.boolean :borrowing
 
       t.timestamps null: false
     end

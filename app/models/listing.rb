@@ -1,7 +1,10 @@
 class Listing < ActiveRecord::Base
   has_many :listing_images
   belongs_to :author, class_name: "User", foreign_key: "author_id"
+  has_one :temp_email_address
   after_save :generate_temp_email
+
+  has_one :location, as: :locationeable
 
   def generate_temp_email
     TempEmailAddress.find_or_create_by(listing_id: id, real_email_address: author.email)
@@ -15,5 +18,9 @@ class Listing < ActiveRecord::Base
     # end
     # ListingImage.first
     "https://s3-us-west-1.amazonaws.com/edswap/listing_images/default.jpg"
+  end
+
+  def location
+    Location.find_by_belongs_to_id(id) || author.location
   end
 end
