@@ -20,7 +20,6 @@ class UsersController < ApplicationController
       redirect_to destination_path
     else
       # @user.setup(location_params)
-      binding.pry
       flash.now[:notice] = @user.errors.messages#.merge(@location.errors.messages)
       render 'sessions/new'
     end
