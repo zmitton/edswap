@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'users/:id',      to: 'users#show', as: 'user'
-  get 'users/:id/edit', to: 'users#edit', as: 'user_edit'
   post 'users', to: 'users#create', as: 'user_create'
   post 'mail', to: 'mail#route', as: 'mail'
   get 'splash', to: 'welcome#splash', as: 'splash'
