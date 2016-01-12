@@ -18,23 +18,16 @@ ActiveRecord::Schema.define(version: 20160111180137) do
 
   create_table "listing_images", force: :cascade do |t|
     t.integer  "listing_id"
-    t.integer  "precedence"
-    t.string   "filename"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "listings", force: :cascade do |t|
-    t.integer  "author_id"
-    t.string   "intension"
+    t.integer  "author"
+    t.string   "type"
     t.string   "subject"
     t.text     "body"
-    t.boolean  "active"
-    t.boolean  "buying"
-    t.boolean  "selling"
-    t.boolean  "lending"
-    t.boolean  "trading"
-    t.boolean  "borrowing"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,7 +64,6 @@ ActiveRecord::Schema.define(version: 20160111180137) do
     t.string   "preferred_email"
     t.string   "password_digest"
     t.datetime "oauth_expires_at"
-    t.boolean  "teacher"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end

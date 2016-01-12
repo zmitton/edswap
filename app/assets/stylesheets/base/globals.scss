@@ -5,15 +5,6 @@
 body {
   background-color: $background;
   margin-top: 100px;
-  // font-family: 'ProximaNova';
-  //background: -webkit-linear-gradient(top, $brown  42%, $lt-tan 100%);
-  //background: -moz-linear-gradient(top, $lt-tan  42%, $sage 100%);
-  //background-image: url(image_path('notebooks.jpg'));
-
-  //background: linear-gradient(to bottom left, rgba(33, 34, 26, 0.8), rgba(33, 34, 26, 0.5)), url(image_path('notebooks.jpg'));
-
-  //background-attachment: fixed;
-  //background-size: cover;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -141,3 +132,4 @@ label {
 i.fa.fa-square.fa-stack-2x.text-primary {
   color: $dk-main;
 }
+
