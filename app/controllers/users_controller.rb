@@ -4,22 +4,24 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.register(user_params)
-    @location = Location.new(location_params.merge(locationeable_type: "User"))
+    @user = User.register(user_params,location_params)
+    # @location = Location.new(location_params.merge(locationeable_type: "User"))
 
-    begin
-      ActiveRecord::Base.transaction do
-        @user.save!
-        @location.locationeable_id = @user.id
-        @location.save!
-      end
-    rescue; end
+    # begin
+    #   ActiveRecord::Base.transaction do
+        @user.save#!
+        # @location.locationeable_id = @user.id
+        # @location.save!
+    #   end
+    # rescue; end
 
-    if @user.errors.none? && @location.errors.none?
+    if @user.errors.none? # && @location.errors.none?
       session[:user_id] = @user.id
       redirect_to destination_path
     else
-      flash.now[:notice] = @user.errors.messages.merge(@location.errors.messages)
+      # @user.setup(location_params)
+      binding.pry
+      flash.now[:notice] = @user.errors.messages#.merge(@location.errors.messages)
       render 'sessions/new'
     end
   end
@@ -31,7 +33,7 @@ class UsersController < ApplicationController
   private 
 
   def user_params
-    params[:user].permit(:preferred_email, :password, :name, :teacher)
+    params[:user].permit(:preferred_email, :password, :name, :teacher, :location_attributes)
   end
 
   def location_params

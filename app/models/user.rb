@@ -1,12 +1,14 @@
 class User < ActiveRecord::Base
   has_secure_password
-  validate :unique_email
+  validate :unique_email, :long_password
+  validates_presence_of :location
 
   has_one :location, as: :locationeable
   accepts_nested_attributes_for :location
 
-  def setup
-    self.location ||= Location.new
+
+  def setup(attributes = {})
+    self.location ||= Location.new(attributes)
     self
   end
 
@@ -28,10 +30,10 @@ class User < ActiveRecord::Base
     preferred_email || oauth_email
   end
 
-  def verify_password
+  def long_password
     if provider != 'facebook' && provider != 'google_oauth2'
       if !password || password.length < 6
-        errors.add(:password, "Password must be at least 8 characters")
+        self.errors.add(:password, "Password must be at least 8 characters")
       end
     end
   end
@@ -64,12 +66,12 @@ class User < ActiveRecord::Base
     user
   end
 
-  def self.register(user_params)
+  def self.register(user_params, location_params = {})
     user = User.new
     user.preferred_email = user_params[:preferred_email]
     user.password = user_params[:password]
     user.provider = "edswap"
-    user.verify_password
+    user.setup(location_params)
 
     user.teacher = user_params[:teacher]
     user.uid = nil
