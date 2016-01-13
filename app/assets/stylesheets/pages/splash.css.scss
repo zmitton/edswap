@@ -1,7 +1,7 @@
 /* fullscreen setup */
 
 body.splash {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(image_path('vintage-background.jpg')) no-repeat center center fixed; ;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(image_path('vintage-background.jpg')) no-repeat center center fixed; ;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -9,7 +9,7 @@ body.splash {
   margin-top: 150px;
   .text_container{
     /*background-color: white;*/
-    background: rgba(0, 0, 0, .55);
+    background: transparent;
     color: white;
     #logo{
       display: block;
