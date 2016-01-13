@@ -14,12 +14,12 @@ body.splash {
       display: block;
       margin: 0 auto;
     }
-    .find{ 
-      color: $edswap-green; 
+    .find{
+      color: $edswap-green;
       font-weight: bold;
       font-style: italic;
     }
-    .swap{ 
+    .swap{
       color: $edswap-orange;
       font-weight: bold;
       font-style: italic;
@@ -159,4 +159,12 @@ body.splash {
     color: black;
     margin: 0 8px 0 8px;
   }*/
+#mce-success-response.response.warning,
+.warning {
+    background-color: brown;
+    padding: 5px 24px 5px 24px;
+    a {
+      color: white;
+    }
+}
 
