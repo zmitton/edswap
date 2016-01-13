@@ -1,128 +1,115 @@
 /* fullscreen setup */
-html, body {
-    /* give this to all tags from html to .fullscreen */
-    height:100%;
-}
 
 body.splash {
-  background-color: $background;
-  // background: -webkit-linear-gradient(top, $brown  42%, $lt-tan 100%);
-  // background: -moz-linear-gradient(top, $lt-tan  42%, $sage 100%);
-  //background-image: url(image_path('supplies.jpg'));
-
-  background: linear-gradient(to bottom left, rgba(33, 34, 26, 0.8), rgba(33, 34, 26, 0.8)), url(image_path('vintage-background.jpg'));
-
-  //background-attachment: fixed;
+  background: url(image_path('vintage-background.jpg')) no-repeat center center fixed; ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  padding-bottom: 100px;
-  width: 100%;
-  background-position: center center;
-  //background-repeat: no-repeat;
-  //   /* custom background-position */
-  //   background-position:50% 50%;
-  //   /* ie8- graceful degradation */
-  //   background-position:50% 50%\9 !important;
-  //   width: 100%;
+
+  margin-top: 300px;
+  
+  .text_container{
+    /*background-color: white;*/
+    background: rgba(255, 255, 235, .33);
+  }
+  
+  .splash header {
+    padding-top: 120px;
+  h1 {
+    // width: 400px;
+    margin: 0 auto;
+    padding-top: 20px;
+    font-size: 46px;
+    }
   }
 
-.splash header {
-  padding-top: 120px;
-h1 {
-  // width: 400px;
-  margin: 0 auto;
-  padding-top: 20px;
-  font-size: 46px;
-  }
-}
 
-.splash {
-  color: white;
+  #mc_embed_signup {
+    // text-align: center;
+    margin: 0 auto;
   }
 
-#mc_embed_signup {
-  // text-align: center;
-  margin: 0 auto;
-}
-
-#mc_embed_signup_scroll {
-  overflow: hidden;
-  h2 {
-  color: white;
-  padding: 0;
+  #mc_embed_signup_scroll {
+    overflow: hidden;
+    h2 {
+    color: white;
+    padding: 0;
+    }
+    p {
+      text-align: center;
+      font-size: 12px;
+    }
   }
-  p {
-    text-align: center;
-    font-size: 12px;
+
+  .splash div.navbar-logo {
+    padding-left: 0px;
   }
-}
 
-.splash div.navbar-logo {
-  padding-left: 0px;
-}
-
-.splash nav.navbar.nav-pills {
-  background-color: transparent;
-  img {
-  padding: 0px;
-  padding-bottom: 5px;
-  }
-}
-
-.subscribe {
-  margin: 0 auto;
-  max-width: 1000px;
-}
-
-.mc-field-group {
-    padding-bottom: 5px;
-    padding-top: 10px;
-}
-
-footer {
-    padding: 25px 0;
-    text-align: center;
+  .splash nav.navbar.nav-pills {
     background-color: transparent;
-}
+    img {
+    padding: 0px;
+    padding-bottom: 5px;
+    }
+  }
 
-footer span.copyright {
-    text-transform: uppercase;
-    text-transform: none;
-    line-height: 40px;
-}
+  .subscribe {
+    margin: 0 auto;
+    max-width: 1000px;
+  }
 
-footer ul.quicklinks {
-    margin-bottom: 0;
-    text-transform: uppercase;
-    text-transform: none;
-    line-height: 40px;
-}
+  .mc-field-group {
+      padding-bottom: 5px;
+      padding-top: 10px;
+  }
 
-ul.social-buttons {
-    margin-bottom: 0;
-}
+  footer {
+      padding: 25px 0;
+      text-align: center;
+      background-color: transparent;
+  }
 
-ul.social-buttons li a {
-    display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    font-size: 20px;
-    line-height: 40px;
-    outline: 0;
-    color: #fff;
-    background-color: $dk-main;
-    -webkit-transition: all .3s;
-    -moz-transition: all .3s;
-    transition: all .3s;
-}
+  footer span.copyright {
+      text-transform: uppercase;
+      text-transform: none;
+      line-height: 40px;
+  }
 
-ul.social-buttons li a:hover,
-ul.social-buttons li a:focus,
-ul.social-buttons li a:active {
-    background-color: #ecb450;
-}
+  footer ul.quicklinks {
+      margin-bottom: 0;
+      text-transform: uppercase;
+      text-transform: none;
+      line-height: 40px;
+  }
 
-input {
-  color: black;
-  margin: 0 8px 0 8px;
+  ul.social-buttons {
+      margin-bottom: 0;
+  }
+
+  ul.social-buttons li a {
+      display: block;
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      font-size: 20px;
+      line-height: 40px;
+      outline: 0;
+      color: #fff;
+      background-color: $dk-main;
+      -webkit-transition: all .3s;
+      -moz-transition: all .3s;
+      transition: all .3s;
+  }
+
+  ul.social-buttons li a:hover,
+  ul.social-buttons li a:focus,
+  ul.social-buttons li a:active {
+      background-color: #ecb450;
+  }
+
+  input {
+    color: black;
+    margin: 0 8px 0 8px;
+  }
 }
