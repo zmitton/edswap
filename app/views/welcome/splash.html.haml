@@ -4,57 +4,51 @@
   %title edSwap
   = stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  %meta{name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"}
 %body.splash
-  .row
-    .col-md-3.col-xs-1
-    .col-md-6.col-xs-10.text-center.text_container
-      %h1 Teachers:
-      %h1 FIND the classroom materials you need, SWAP what you don’t
+  .col-md-3.col-xs-0
+  .col-md-6.col-xs-12.text-center.text_container
+    %h1 Teachers:
+    %h2 FIND the classroom materials you need, SWAP what you don’t
+    =image_tag "edswap-logo.png", :height => "50"
 
-      #mc_embed_signup
-        %form#mc-embedded-subscribe-form.validate{:action => "//edswap.us12.list-manage.com/subscribe/post?u=88eca20c5e3336df2621664ee&amp;id=99405d0df5", :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
-          #mc_embed_signup_scroll
-            %h3.text-center Enter your email to receive one of our limited 500 invitations to the site:
-            .mc-field-group
-              .subscribe
-                %label{:for => "mce-EMAIL"} Email Address
-                %input#mce-EMAIL.required.email{:name => "EMAIL", :type => "email", :value => ""}
-                %input#mc-embedded-subscribe.btn.btn-edswap{:name => "subscribe", :type => "submit", :value => "Join now"}/
-                %script{:src => "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js", :type => "text/javascript"}
-            #mce-responses.clear
-              #mce-error-response.response{:style => "display:none"}
-              #mce-success-response.response{:style => "display:none"}
-            / real people should not fill this in and expect good things - do not remove this or risk form bot signups
-            %div{"aria-hidden" => "true", :style => "position: absolute; left: -5000px;"}
-              %input{:name => "b_88eca20c5e3336df2621664ee_99405d0df5", :tabindex => "-1", :type => "text", :value => ""}/
-            .clear
+    #mc_embed_signup
+      %form#mc-embedded-subscribe-form.validate{:action => "//edswap.us12.list-manage.com/subscribe/post?u=88eca20c5e3336df2621664ee&amp;id=99405d0df5", :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
+        #mc_embed_signup_scroll
+          %h3.text-center Enter your email to receive one of our limited 500 invitations to the site:
+          .mc-field-group
+            .subscribe
+              %input#mce-EMAIL.required.email{:name => "EMAIL", :type => "email", :value => "", :placeholder => "Email Address"}
+              %br
+              %input#mc-embedded-subscribe.btn.btn-edswap{:name => "subscribe", :type => "submit", :value => "Join now"}/
+              %script{:src => "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js", :type => "text/javascript"}
             %p As teachers, we know how annoying useless emails can be, so we promise we’ll never spam you!
-    .col-md-3.col-xs-1
+          #mce-responses.clear
+            #mce-error-response.response{:style => "display:none"}
+            #mce-success-response.response{:style => "display:none"}
+          / real people should not fill this in and expect good things - do not remove this or risk form bot signups
+          %div{"aria-hidden" => "true", :style => "position: absolute; left: -5000px;"}
+            %input{:name => "b_88eca20c5e3336df2621664ee_99405d0df5", :tabindex => "-1", :type => "text", :value => ""}/
+          .clear
+
+      %ul.list-inline.social-buttons
+        %li
+          %a{:href => "https://twitter.com/edswap"}
+            %i.fa.fa-twitter
+        %li
+          %a{:href => "https://www.facebook.com/EdSwap-1674834089452380/?fref=ts"}
+            %i.fa.fa-facebook
+        %li
+          %a{:href => "mailto:info@edswap.org?Subject=Edswap%20Question"}
+            %i.fa.fa-envelope
+      %span.copyright Copyright &copy; edSwap 2015
+      / %ul.list-inline.quicklinks
+      /   %li
+      /     %a{:href => "#"} Privacy Policy
+      /   %li
+      /     %a{:href => "#"} Terms of Use
+  .col-md-3.col-xs-0
   / =image_tag "edswap-logo.png", :height => "50"
-
-  %footer
-    .container
-      .row
-        .col-md-4
-
-        .col-md-4
-          %ul.list-inline.social-buttons
-            %li
-              %a{:href => "https://twitter.com/edswap"}
-                %i.fa.fa-twitter
-            %li
-              %a{:href => "https://www.facebook.com/EdSwap-1674834089452380/?fref=ts"}
-                %i.fa.fa-facebook
-            %li
-              %a{:href => "mailto:info@edswap.org?Subject=Edswap%20Question"}
-                %i.fa.fa-envelope
-        .col-md-4
-          %span.copyright Copyright &copy; edSwap 2015
-          / %ul.list-inline.quicklinks
-          /   %li
-          /     %a{:href => "#"} Privacy Policy
-          /   %li
-          /     %a{:href => "#"} Terms of Use
 
 :javascript
   (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);/
