@@ -18,7 +18,9 @@
               /     %span.fa.fa-google
               /     Sign in with Google
               = form_for @user, url: url_for(controller: 'sessions', action: "create") do |f|
+                = f.label :preferred_email, "Email", title: "We will never give this out or spam you"
                 = f.text_field :preferred_email, placeholder: "email"
+                = f.label :password
                 = f.password_field :password, placeholder: "at least 8 characters"
                 = f.submit "sign in", :class => 'btn btn-edswap'
           .col-md-6.col-sm-12
