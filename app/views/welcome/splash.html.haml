@@ -7,29 +7,29 @@
   %meta{name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"}
 %body.splash
   .col-sm-3.col-xs-0
-  .col-sm-6.col-xs-12.text_container
-    =image_tag "edswap-logo.png", :height => "50", :id => "logo"
+  .col-sm-6.col-xs-12.text_container.text-center
+    =image_tag "edswap-orange.png", :height => "80", :id => "logo"
     %p.text-center made for teachers, by teachers
-    %h3 <span class="find">Find</span> the classroom materials you need
-    %h3 <span class="swap">Swap</span> what you don’t
-    %br
+    .tagline
+      %h3 <span class="find">Find</span> the classroom materials you need
+      %h3 <span class="swap">Swap</span> what you don’t
+      %br
 
     #mc_embed_signup
       %form#mc-embedded-subscribe-form.validate{:action => "//edswap.us12.list-manage.com/subscribe/post?u=88eca20c5e3336df2621664ee&amp;id=99405d0df5", :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
         #mc_embed_signup_scroll
-          %p Sign up for a free, limited time invitation.
+          %h4 Notify me when edSwap is available:
           .mc-field-group
             .subscribe
               %input#mce-EMAIL.required.email{:name => "EMAIL", :type => "email", :value => "", :placeholder => "Email Address"}
-              %br
-              %input#mc-embedded-subscribe.btn.btn-edswap{:name => "subscribe", :type => "submit", :value => "Join now"}/
+              %input#mc-embedded-subscribe.btn.btn-edswap{:name => "subscribe", :type => "submit", :value => "Request Invite"}/
               %script{:src => "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js", :type => "text/javascript"}
 
             #mce-responses.clear
               #mce-error-response.response.warning{:style => "display:none"}
               #mce-success-response.response.warning{:style => "display:none"}
             / real people should not fill this in and expect good things - do not remove this or risk form bot signups
-            %p As teachers, we know how annoying useless emails can be, so we promise we’ll never spam you!
+            %h5 *We won't spam you, we hate spam as much as you do!
           %div{"aria-hidden" => "true", :style => "position: absolute; left: -5000px;"}
             %input{:name => "b_88eca20c5e3336df2621664ee_99405d0df5", :tabindex => "-1", :type => "text", :value => ""}/
           .clear

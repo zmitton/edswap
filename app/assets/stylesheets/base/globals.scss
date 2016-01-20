@@ -141,6 +141,7 @@ i.fa.fa-square.fa-stack-2x.text-primary {
 .edswap-orange{
   color: $edswap-orange;
 }
+
 .edswap-green{
   color: $edswap-orange;
 }
@@ -151,13 +152,30 @@ footer {
     bottom: 0;
     background-color: $dk-main;
     box-shadow: 0px -2px 4px 0px rgba(0,0,0,0.50);
-    padding-top: 0px;
     text-align: center;
     color: white;
-    padding: 10px 50px 5px 0px;
+    padding: 0;
     font-size: 12px;
     letter-spacing: 0.36px;
     line-height: 29px;
     font-weight: 100;
+}
 
+article {
+  margin: 0 150px;
+}
+
+#meet-the-team {
+  background-color: $lt-contrast;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  img {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  }
+  h2 {
+    margin-bottom: 25px;
+  }
 }

@@ -1,6 +1,6 @@
 /* fullscreen setup */
 body.splash {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(image_path('vintage-background.jpg')) no-repeat center center fixed; ;
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(image_path('pencils-blur.jpg')) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -8,8 +8,8 @@ body.splash {
   margin-top: 150px;
   .text_container{
     padding-top: 25px;
-    background: rgba(0, 0, 0, .55);
-    color: white;
+    //background: rgba(0, 0, 0, .55);
+    color: #333;
     #logo{
       display: block;
       margin: 0 auto;
@@ -25,20 +25,45 @@ body.splash {
       font-style: italic;
     }
   }
-  .social-buttons{
-    float: left;
+  // .social-buttons{
+  //   float: left;
+  // }
+  p {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+  h3 {
+    font-size: 22px;
   }
   .copyright{
-    float:right;
-    margin-top: 10px
+    //float:right;
+    margin-top: 10px;
+    font-size: 10px;
+    font-style: italic;
   }
   #mc-embedded-subscribe{
     max-width: 275px;
-    margin: 10px 0px 10px 0px;
+    margin: 8px 0px 8px 0px;
     border-radius: 0px;
+    vertical-align: middle;
+    border-radius: 2px;
+    border: 1px solid $contrast;
   }
   #mce-EMAIL{
     color: black;
+    padding-left: 10px;
+    border: 1px solid #D6D6D6;
+    background-color: $lt-contrast;
+    font-size: 16px;
+    color: #2f2f2f;
+    padding-left: 10px;
+    border: 1px solid #d5d5d5;
+    color: #333;
+    border-radius: 2px 2px 2px 2px !important;
+    height: 25px;
+    vertical-align: middle;
+    text-transform: uppercase;
   }
   ul.social-buttons li a {
     text-align: center;
@@ -46,14 +71,15 @@ body.splash {
     width: 40px;
     height: 40px;
     border-radius: 100%;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 40px;
     outline: 0;
     color: #fff;
-    background-color: $dk-main;
+    background-color: $edswap-green;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
     transition: all .3s;
+    margin-bottom: 0px;
   }
   ul.social-buttons li a:hover,
   ul.social-buttons li a:focus,
@@ -63,11 +89,20 @@ body.splash {
   footer {
     background-color: transparent;
   }
+  h3, h4, h5 {
+    margin: 0;
+  }
+  .list-inline {
+    margin: 0 auto;
+  }
+  .tagline {
+    margin-bottom: 40px;
+  }
 }
 
 @media (max-width: 767px) {
   body.splash {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(image_path('vintage-background.jpg')) no-repeat center center fixed; ;
+    // background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(image_path('pencils-blur.jpg')) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -75,6 +110,13 @@ body.splash {
     margin-top: 0px;
     .text_container{
       background: transparent;
+    }
+    .btn-edswap {
+      width: 275px;
+    }
+    h3,
+    h4 {
+      margin-bottom: 5px;
     }
   }
 }
