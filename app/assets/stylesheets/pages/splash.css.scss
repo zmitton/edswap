@@ -201,10 +201,12 @@ body.splash {
     color: black;
     margin: 0 8px 0 8px;
   }*/
+#mc_embed_signup div.mce_inline_error,
 #mce-success-response.response.warning,
 .warning {
-    background-color: brown;
+    background-color: #5f803c;
     padding: 5px 24px 5px 24px;
+    color: white;
     a {
       color: white;
     }
