@@ -24,7 +24,7 @@
           .col-md-6.col-sm-12
             .thumbnail.sign-in-box
               %h2 Create an Account
-              = form_for @user, url: url_for(controller: 'users', action: "create") do |f|
+              = form_for @user, url: url_for(controller: 'users', action: "create"), html: {class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f|
                 = f.label :preferred_email, "Email", title: "We will never give this out or spam you"
                 = f.text_field :preferred_email, title: "We will never give this out or spam you", required: true
                 = f.label :password
@@ -44,9 +44,16 @@
                   = ff.text_field :school_name
                 = f.label :teacher, "I'm a Teacher"
                 = f.check_box :teacher ,value: "true"
+
+                %label 
+                  Upload Photo:
+                = f.label :image_path
+                = f.file_field :image_path
+
                 = f.submit value: "register", :class => 'btn btn-edswap'
         .row
           .col-lg-12
             .disclaimer
               %h6 EdSwap does not share any of your personal data. We use facebook or google login to make it easier and more convenient for you to create an account with us.
               %h6 We use this email address internally as your identity but will never send any spam or give any information to a third party whatsoever.
+

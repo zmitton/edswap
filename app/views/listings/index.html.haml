@@ -7,7 +7,7 @@
   - @listings.each do |listing|
     .row
       .col-md-7
-        %a{:href => "#"}
+        - if listing.has_image? 
           = image_tag(listing.main_image_path, class: "img-responsive", width: "500px")
       .col-md-5
         %h3

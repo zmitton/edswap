@@ -26,31 +26,38 @@
 
 #create_listing_div
   %h3 Create new listing
-  = form_for @listing, url: url_for(controller: 'listings', action: "create", class: "create_listing_form") do |f|  
+  = form_for @listing, url: url_for(controller: 'listings', action: "create"), html: { class: "create_listing_form directUpload", data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f|
     %label
       Title
-      = f.text_field :subject, id: "title_box"
+      = f.text_field :subject, id: "title_box", required: true
     %label
       I'd like to:
     %label{for: "lend_box"}
-      Lend
-      = f.check_box :intension ,value: "lend", id: "lend_box"
+      Lending
+      = f.check_box :lending,   value: true, id: "lend_box",   name: "listing[lending]"
     %label{for: "sell_box"}
-      Sell
-      = f.check_box :intension ,value: "sell", id: "sell_box"
+      Selling
+      = f.check_box :selling,   value: true, id: "sell_box",   name: "listing[selling]"
     %label{for: "buy_box"}
-      Buy
-      = f.check_box :intension ,value: "buy", id: "buy_box"
+      Buying
+      = f.check_box :buying,    value: true, id: "buy_box",    name: "listing[buying]"
     %label{for: "borrow_box"}
-      Borrow
-      = f.check_box :intension ,value: "borrow", id: "borrow_box"
+      Borrowing
+      = f.check_box :borrowing, value: true, id: "borrow_box", name: "listing[borrowing]"
     %label{for: "trade_box"}
-      Trade
-      = f.check_box :intension ,value: "trade", id: "trade_box"
+      Trading
+      = f.check_box :trading,   value: true, id: "trade_box",  name: "listing[trading]"
     %label
       Description:
-      = f.text_area :body
-    %label
-      Upload Photo:
-      = f.file_field :picture
+      = f.text_area :body, required: true
+    = f.fields_for :listing_image do |ff|
+      %label 
+        Upload Photo:
+        = ff.label :image_path
+        = ff.file_field :image_path
     = f.submit :submit, class: "btn btn-edswap", value: "submit"
+
+
+
+
+

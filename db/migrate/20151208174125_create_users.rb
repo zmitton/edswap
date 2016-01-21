@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest
       t.datetime :oauth_expires_at
 
+      t.string :image_path
       t.boolean :teacher
 
       t.timestamps null: false

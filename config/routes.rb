@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
 
   resources :sessions, only: [:new, :create, :destroy, :show]
-  get 'login', to: 'sessions#new', as: 'login'
+  get 'login', to: 'users#new', as: 'login'
   get 'auth/failure', to: redirect('/')
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'signout', to: 'sessions#destroy', as: 'signout'

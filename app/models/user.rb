@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :location
 
 
+  def profile_pic
+    image_path || "profile-pic.jpg"
+  end
+
   def setup(attributes = {})
     self.location ||= Location.new(attributes)
     self
@@ -72,7 +76,7 @@ class User < ActiveRecord::Base
     user.password = user_params[:password]
     user.provider = "edswap"
     user.setup(location_params)
-
+    user.image_path = user_params[:image_path]
     user.teacher = user_params[:teacher]
     user.uid = nil
     user.name = user_params[:name]

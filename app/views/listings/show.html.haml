@@ -11,6 +11,5 @@
     %p
       = @listing.body
   .col-md-6.col-sm-12
-    = image_tag(@listing.main_image_path, width: "500px")
-    -@listing.listing_images.each do |image|
-      = image_tag(image.path, width: "500px")
+    - @listing.listing_images.each do |image|
+      = image_tag(image.image_path, width: "500px")

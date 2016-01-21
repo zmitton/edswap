@@ -1,8 +1,6 @@
 class SessionsController < ApplicationController
-  def new
-    @user = User.new.setup
-    session[:destination_uri] = params[:destination_uri]
-  end
+  before_action :set_s3_direct_post, only: [:create]
+  before_action :allow_access_control
 
   def create
     if params.key?(:user)
@@ -13,10 +11,10 @@ class SessionsController < ApplicationController
 
     if @user.errors.none?
       session[:user_id] = @user.id
-      redirect_to destination_path #redirect preferably where they came from
+      redirect_to (destination_path || root_path)#redirect preferably where they came from
     else
       flash.now[:notice] = @user.errors.messages
-      render 'sessions/new' #didnt work so do something else
+      render 'users/new' #didnt work so do something else
     end
   end
 
@@ -26,6 +24,9 @@ class SessionsController < ApplicationController
   end
 
   private
+  def set_s3_direct_post
+    @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
+  end
 
   def user_params
     params[:user].slice(:preferred_email, :password)

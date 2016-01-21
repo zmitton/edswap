@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
   # GET /listings
   # GET /listings.json
   def index
@@ -16,6 +17,7 @@ class ListingsController < ApplicationController
   # GET /listings/new
   def new
     @listing = Listing.new
+    @hash = {lend: false, borrow: false, steal: false, buy: false, sell: false}
   end
 
   # GET /listings/1/edit
@@ -26,24 +28,10 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
-    # @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
-    # if @s3_direct_post 
-    #   render :text => 'Success', :status => 200
-    # else
-    #   render :text => "Failed", :status => 422, :content_type => Mime::TEXT.to_s
-    # end
-
-    if params[:listing][:picture]
-      name = "#{SecureRandom.uuid}.#{params[:listing][:picture].original_filename.split(".").last}"
-      path = File.join("public#{ListingImage.directory}", name)
-      File.open(path, "wb") { |f| f.write(params[:listing][:picture].read) }
-    end
-# binding.pry
     @listing = Listing.new(listing_params)
-
     if @listing.save
+      ListingImage.create(precedence: 1, image_path: params[:listing][:listing_image][:image_path] , listing_id: @listing.id ) if params[:listing][:listing_image]
       TempEmailAddress.create(listing_id: @listing.id, real_email_address: current_user.email)
-      # ListingImage.create(filename: name, listing_id: @listing.id) if params[:listing][:picture]
       redirect_to listing_path(@listing.id), notice: 'Listing was successfully created.'
     else
       flash.now[:notice] = @listing.errors.messages
@@ -76,13 +64,17 @@ class ListingsController < ApplicationController
   end
 
   private
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def listing_params
+      params.require(:listing).permit(:author, :type, :subject, :body, :buying, :selling, :lending, :trading, :borrowing).merge(author_id: current_user.id)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
       @listing = Listing.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def listing_params
-      params.require(:listing).permit(:author, :type, :subject, :body).merge(author_id: current_user.id)
+    def set_s3_direct_post
+      @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
     end
 end
