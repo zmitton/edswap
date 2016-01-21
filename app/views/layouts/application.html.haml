@@ -13,7 +13,7 @@
     .container
       .navbar-logo
       %a{href: "/listings"}
-        =image_tag "edswap-logo.png", :height => "50"
+        =image_tag "edswap-orange.png", :height => "50"
         - if current_user
           Hi #{current_user.nickname}
       %ul.nav.navbar-nav.navbar-right
@@ -32,5 +32,15 @@
     = yield
 %footer
   .row
-    .col-lg-12
-      %p.text-right Copyright &copy; edSwap 2015
+    .col-md-12
+    %ul.list-inline.social-buttons
+      %li
+        %a{:href => "https://twitter.com/edswap"}
+          %i.fa.fa-twitter
+      %li
+        %a{:href => "https://www.facebook.com/EdSwap-1674834089452380/?fref=ts"}
+          %i.fa.fa-facebook
+      %li
+        %a{:href => "mailto:info@edswap.org?Subject=Edswap%20Question"}
+          %i.fa.fa-envelope
+      %h6 Copyright &copy; edSwap 2015
