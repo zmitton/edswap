@@ -5,15 +5,16 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1><%="Edswap #{@listing.title}"%></h1>
+    <h1><%="Dear #{@user.name},"%> <br> Thank you for joining the Edswap Community</h1>
     <p>
-      <%= @params %>
-      You have successfully signed up to example.com,
-      your username is: <br>
+      You have successfully signed up to edswap.org. and are among the first few users. Help the community out by posting an item, or just browse around and see if you or your students could benefit from anything you see.
     </p>
-    <p>
-      To login to the site, just follow this link:.
-    </p>
-    <p>Thanks for joining and have a great day!</p>
+    <br>
+    <p>To login to the site, just follow this link: </p>
+    <a href="<%= "http://edswap.org/login" %>">
+      <%= "http://edswap.org/login" %>
+    </a>
+    <br>
+    <p>Thanks from our team and have fun swapping!</p>
   </body>
 </html>
