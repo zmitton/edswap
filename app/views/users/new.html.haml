@@ -18,10 +18,11 @@
               /     %span.fa.fa-google
               /     Sign in with Google
               = form_for @user, url: url_for(controller: 'sessions', action: "create") do |f|
-                = f.label :preferred_email, "Email", title: "We will never give this out or spam you"
-                = f.text_field :preferred_email, placeholder: "email"
+                = f.label :preferred_email, "Email"
+                = f.text_field :preferred_email, placeholder: "email", required: true, id: "login_email"
                 = f.label :password
                 = f.password_field :password, placeholder: "at least 8 characters"
+                %a#password_reset_button{href: ""} forgot password
                 = f.submit "sign in", :class => 'btn btn-edswap'
           .col-md-6.col-sm-12
             .thumbnail.sign-in-box
@@ -59,4 +60,16 @@
               %h6 EdSwap does not share any of your personal data.
               /*We use facebook or google login to make it easier and more convenient for you to create an account with us.*/
               %h6 We use this email address internally as your identity but will never send any spam or give any information to a third party whatsoever.
+:javascript
+  $( document ).ready(function() {
+    $('#password_reset_button').click(function(){
+      if($('#login_email').val() == ""){
+        alert("please fill in the email field to begin password reset process");
+      } else{
+        window.location.href = "/create_password_reset?preferred_email=" + encodeURIComponent($('#login_email').val());
+      }
+    });
+  });
+
+
 

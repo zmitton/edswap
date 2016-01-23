@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root to: 'welcome#splash'
+  # root to: 'welcome#index'
 
 
   resources :sessions, only: [:new, :create, :destroy, :show]
@@ -21,6 +22,8 @@ Rails.application.routes.draw do
   get 'mission', to: 'mission#show', as: 'mission'
 
   
+  get 'create_password_reset', to: 'users#create_password_reset', as: 'create_password_reset'
+  get 'reset_password', to: 'users#reset_password', as: 'reset_password'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

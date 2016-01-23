@@ -10,6 +10,11 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest
       t.datetime :oauth_expires_at
 
+      t.string :phone_number
+
+      t.uuid    :password_reset_code
+      t.datetime :password_reset_code_expires_at
+
       t.string :image_path
       t.boolean :teacher
 

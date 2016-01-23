@@ -84,4 +84,8 @@ class User < ActiveRecord::Base
     user.oauth_expires_at = nil
     user
   end
+
+  def create_password_reset_code
+    self.update_columns(password_reset_code: SecureRandom.uuid, password_reset_code_expires_at: (Time.now + 2.days))
+  end
 end

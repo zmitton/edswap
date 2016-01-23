@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_s3_direct_post, only: [ :edit, :create, :new] # , :update
+  before_action :set_s3_direct_post, only: [ :edit, :create, :new, :create_password_reset]
   before_action :allow_access_control
 
   def show
@@ -26,6 +26,53 @@ class UsersController < ApplicationController
       flash.now[:notice] = @user.errors.messages
       render 'users/new'
     end
+  end
+
+  def update
+    @user = User.find(session[:user_id])
+
+    if @user && params[:password]
+      @user.password = params[:password]
+      @user.save
+    end
+
+    if @user.errors.none?
+      redirect_to (destination_path || user_path(@user.id))
+    else
+      flash.now[:notice] = @user.errors.messages
+      render 'users/show'
+    end
+  end
+
+  def reset_password
+    @user = User.find_by(password_reset_code: params[:password_reset_code])
+    if @user 
+      if @user.password_reset_code_expires_at > Time.now
+        @user.update(password_reset_code: nil)
+        session[:user_id] = @user.id
+        flash[:notice] = "You are logged in as #{@user.preferred_email}, Please create a new password"
+        redirect_to user_path(@user.id)
+      else
+        flash[:notice] = "Sorry. The password reset link is expired. please try again"
+        redirect_to login_path
+      end
+    else
+      flash[:notice] = "Sorry. Something went wrong. please try again"
+      redirect_to login_path
+    end
+  end
+
+  def create_password_reset
+    @user = User.find_by(preferred_email: params[:preferred_email])
+    if @user
+      @user.create_password_reset_code
+      UserMailer.password_reset_email(@user).deliver_now
+      flash.now[:notice] = "Please check your email for password reset instructions"
+    else
+      @user = User.new.setup
+      flash.now[:notice] = "Email address not registered"
+    end
+    render 'users/new'
   end
 
   private 

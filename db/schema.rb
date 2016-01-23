@@ -19,18 +19,13 @@ ActiveRecord::Schema.define(version: 20160111180137) do
   create_table "listing_images", force: :cascade do |t|
     t.integer  "listing_id"
     t.integer  "precedence"
-<<<<<<< HEAD
     t.string   "image_path"
-=======
-    t.string   "filename"
->>>>>>> 06192a26a1eab16027cc01c8b99c11f0a13bb0bc
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "listings", force: :cascade do |t|
     t.integer  "author_id"
-    t.string   "intension"
     t.string   "subject"
     t.text     "body"
     t.boolean  "active"
@@ -75,13 +70,13 @@ ActiveRecord::Schema.define(version: 20160111180137) do
     t.string   "preferred_email"
     t.string   "password_digest"
     t.datetime "oauth_expires_at"
-<<<<<<< HEAD
+    t.string   "phone_number"
+    t.uuid     "password_reset_code"
+    t.datetime "password_reset_code_expires_at"
     t.string   "image_path"
-=======
->>>>>>> 06192a26a1eab16027cc01c8b99c11f0a13bb0bc
     t.boolean  "teacher"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
 end
