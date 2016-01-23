@@ -5,15 +5,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1><%= @to_temp_address.listing.subject %></h1>
-    <p>
-      <%= @params[:plain] %>
-    </p>
-
-
-    <p> The above email is in reference to this listing: </p>
-    <a href="<%= "http://edswap.org/listings/#{@to_temp_address.listing_id}" %>">
-             <%= "http://edswap.org/listings/#{@to_temp_address.listing_id}" %>
-    </a>
+  <h1><%= @params[:envelope] %></h1>
+  <h2><%= @params  %></h2>
   </body>
 </html>
