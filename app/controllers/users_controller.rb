@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_s3_direct_post, only: [ :edit, :create, :new, :create_password_reset, :create_session]
+  before_action :set_s3_direct_post, only: [ :edit, :create, :new, :create_password_reset]
   before_action :allow_access_control
 
   def show
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
     if @user.errors.none?
       session[:user_id] = @user.id
-      UserMailer.welcome_email(@user)
+      UserMailer.welcome_email(@user).deliver_now
       redirect_to (destination_path || user_path(@user.id))
     else
       flash.now[:notice] = @user.errors.messages
