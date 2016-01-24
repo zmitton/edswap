@@ -15,6 +15,6 @@ class UserMailer < ApplicationMailer
     @params = params
     @to_temp_address = to_temp_address
     @from_temp_address = from_temp_address
-    mail(to: @to_temp_address.real_email_address, from: @from_temp_address.temp_email_address, subject: "Edswap listing Response: #{@params['headers']['Subject']}")
+    mail(to: @to_temp_address.real_email_address, from: "#{@from_temp_address.temp_email_address}@edswap.org", subject: "Edswap listing Response: #{@params['headers']['Subject']}")
   end
 end
