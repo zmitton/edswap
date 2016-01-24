@@ -22,7 +22,9 @@
                 = f.text_field :preferred_email, placeholder: "email", required: true, id: "login_email"
                 = f.label :password
                 = f.password_field :password, placeholder: "at least 8 characters"
-                %a#password_reset_button{href: ""} forgot password
+                %br
+                %h5
+                  %a#password_reset_button{href: ""} forgot password
                 = f.submit "sign in", :class => 'btn btn-edswap'
           .col-md-6.col-sm-12
             .thumbnail.sign-in-box
@@ -48,7 +50,7 @@
                 = f.label :teacher, "I'm a Teacher"
                 = f.check_box :teacher ,value: "true"
 
-                %label 
+                %label
                   Upload Photo:
                 = f.label :image_path
                 = f.file_field :image_path
