@@ -1,7 +1,6 @@
 class Listing < ActiveRecord::Base
   has_many :listing_images
   belongs_to :author, class_name: "User", foreign_key: "author_id"
-  has_one :temp_email_address
   after_save :generate_temp_email
   validates_presence_of :subject
   validates_presence_of :body
@@ -32,5 +31,9 @@ class Listing < ActiveRecord::Base
 
   def intensions
     Listing::INTENTIONS.select {|intention| self.send(intention)}
+  end
+
+  def temp_email_address
+    TempEmailAddress.find_by(listing_id: self.id, real_email_address: author.preferred_email)
   end
 end
