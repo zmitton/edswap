@@ -21,7 +21,7 @@ class MailController < ApplicationController
   private
 
   def destination_code
-    params[:envelope][:to].split("@").first
+    params[:envelope]['To'].split("@").first
   end
 
   def from

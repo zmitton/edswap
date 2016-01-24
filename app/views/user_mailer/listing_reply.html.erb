@@ -5,7 +5,8 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-  <h1><%= @params[:envelope] %></h1>
+  <h1><%= @params[:envelope]['from'] %></h1><br>
+  <h1><%= @params['To'] %></h1><br>
   <h2><%= @params  %></h2>
   </body>
 </html>
