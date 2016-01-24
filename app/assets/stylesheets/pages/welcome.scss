@@ -4,7 +4,8 @@
 
 .disclaimer {
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 #status a#sign_in_w_google,
@@ -49,12 +50,12 @@
   padding-bottom: 150px;
 }
 
-#nav {
-   width:100%;
-    display:block;
-    background-color:#64abfb;
-   border-bottom:5px solid #2980b9;
-   }
+// #nav {
+//   width:100%;
+//   display:block;
+//   background-color:#64abfb;
+//   border-bottom:5px solid #2980b9;
+//    }
 
 #nav ul {
     padding:0;
@@ -246,5 +247,13 @@
         width: auto;
 
     }
+}
+
+input#user_image_path {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background-color: white;
+  min-height: 20px;
 }
 

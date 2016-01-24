@@ -56,7 +56,6 @@
 //     margin-top: 15px;
 //   }
 // }
-
 .form-style-10{
     max-width:600px;
     padding:30px;
@@ -76,6 +75,7 @@
     margin-bottom: 15px;
     overflow: auto;
 }
+
 .form-style-10 h1{
     background: $dk-main;
     padding: 20px 30px 15px 30px;
@@ -91,11 +91,13 @@
     box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
     border: 1px solid $main;
 }
+
 .form-style-10 h1 > span{
     display: block;
     margin-top: 2px;
     font: 13px;
 }
+
 .form-style-10 label{
     display: block;
     //font: 13px Arial, Helvetica, sans-serif;
@@ -103,6 +105,7 @@
     margin-bottom: 15px;
     text-align: left;
 }
+
 .form-style-10 input[type="text"],
 .form-style-10 input[type="date"],
 .form-style-10 input[type="datetime"],
@@ -135,6 +138,7 @@
     color: $dk-main;
     margin-bottom: 5px;
 }
+
 .form-style-10 .section span {
     background: $contrast;
     padding: 5px 10px 5px 10px;
@@ -171,14 +175,14 @@
 //     -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
 //     box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
 // }
-.form-style-10 .privacy-policy{
-    float: right;
-    width: 250px;
-    font: 12px Arial, Helvetica, sans-serif;
-    color: #4D4D4D;
-    margin-top: 10px;
-    text-align: right;
-}
+// .form-style-10 .privacy-policy{
+//     float: right;
+//     width: 250px;
+//     font: 12px Arial, Helvetica, sans-serif;
+//     color: #4D4D4D;
+//     margin-top: 10px;
+//     text-align: right;
+// }
 
 .listing-checkbox {
   width: 150px;
@@ -199,4 +203,10 @@
 
 .form-style-10 .btn.btn-edswap {
   float: right;
+}
+#email_button,
+#call_button,
+#text_button, {
+    float: left;
+    margin-right: 10px;
 }

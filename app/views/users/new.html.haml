@@ -1,67 +1,67 @@
-%header.jumbotron.hero-spacer.text-center#login_new
-  .row
-    .col-lg-12
-      - if current_user
-        %h1 Welcome #{current_user.name}!
-        = link_to "Sign out", signout_path, id: "sign_out"
-      - else
-        %h1 Login to your account
-        .row
-          .col-md-6.col-sm-12.hero-feature
-            .thumbnail.sign-in-box
-              %h2 Sign in
-              / %div.social-icons
-              /   %a.btn.btn-primary.btn-large.btn-text{id: "sign_in_with_facebook", href: "/auth/facebook"}
-              /     %span.fa.fa-facebook
-              /     Sign in with Facebook
-              /   %a.btn.btn-danger.btn-large.btn-text{id: "sign_in_with_google", href: "/auth/google_oauth2"}
-              /     %span.fa.fa-google
-              /     Sign in with Google
-              = form_for @user, url: url_for(controller: 'sessions', action: "create") do |f|
-                = f.label :preferred_email, "Email"
-                = f.text_field :preferred_email, placeholder: "email", required: true, id: "login_email"
-                = f.label :password
-                = f.password_field :password, placeholder: "at least 8 characters"
-                %br
-                %h5
-                  %a#password_reset_button{href: ""} forgot password
-                = f.submit "sign in", :class => 'btn btn-edswap'
-          .col-md-6.col-sm-12
-            .thumbnail.sign-in-box
-              %h2 Create an Account
-              = form_for @user, url: url_for(controller: 'users', action: "create"), html: {class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f|
-                = f.label :preferred_email, "Email", title: "We will never give this out or spam you"
-                = f.text_field :preferred_email, title: "We will never give this out or spam you", required: true
-                = f.label :password
-                = f.password_field :password, placeholder: "at least 8 characters", required: true
-                = f.label :name
-                = f.text_field :name, placeholder: "what you prefer"
-                = f.fields_for :location do |ff|
-                  = ff.label :address
-                  = ff.text_field :address
-                  = ff.label :city
-                  = ff.text_field :city, required: true
-                  = ff.label :state
-                  = ff.text_field :state, value: "CA"
-                  = ff.label :zip
-                  = ff.text_field :zip
-                  = ff.label :school_name
-                  = ff.text_field :school_name
-                = f.label :teacher, "I'm a Teacher"
-                = f.check_box :teacher ,value: "true"
+%ul.nav.nav-tabs
+  %li.active
+    %a{"data-toggle" => "tab", :href => "#login-tab"} LOGIN
+  %li
+    %a{"data-toggle" => "tab", :href => "#signup-tab"} SIGN UP
+.tab-content.text-center
+  #login-tab.tab-pane.fade.in.active
+    .col-md-6.col-md-offset-3.col-sm-12
+      .thumbnail.login-box
+        - if current_user
+          %h1 Welcome #{current_user.name}!
+          = link_to "Sign out", signout_path, id: "sign_out"
+        - else
+          %h2
+          / %div.social-icons
+          /   %a.btn.btn-primary.btn-large.btn-text{id: "sign_in_with_facebook", href: "/auth/facebook"}
+          /     %span.fa.fa-facebook
+          /     Sign in with Facebook
+          /   %a.btn.btn-danger.btn-large.btn-text{id: "sign_in_with_google", href: "/auth/google_oauth2"}
+          /     %span.fa.fa-google
+          /     Sign in with Google
+          = form_for @user, url: url_for(controller: 'sessions', action: "create") do |f|
+            = f.label :preferred_email, "Email"
+            = f.text_field :preferred_email, placeholder: "email", required: true, id: "login_email"
+            = f.label :password
+            = f.password_field :password, placeholder: "at least 8 characters"
+            %h5
+              %a#password_reset_button{href: ""} forgot password
+            = f.submit "sign in", :class => 'btn btn-edswap'
+  #signup-tab.tab-pane.fade
+    .col-md-6.col-md-offset-3.col-sm-12.tab-container
+      .thumbnail.sign-in-box
+        %h3 Create an Account
+        = form_for @user, url: url_for(controller: 'users', action: "create"), html: {class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f|
+          = f.label :preferred_email, "Email", title: "We will never give this out or spam you"
+          = f.text_field :preferred_email, title: "We will never give this out or spam you", required: true
+          = f.label :password
+          = f.password_field :password, placeholder: "at least 8 characters", required: true
+          = f.label :name
+          = f.text_field :name, placeholder: "what you prefer"
+          = f.fields_for :location do |ff|
+            = ff.label :address
+            = ff.text_field :address
+            = ff.label :city
+            = ff.text_field :city, required: true
+            = ff.label :state
+            = ff.text_field :state, value: "CA"
+            = ff.label :zip
+            = ff.text_field :zip
+            = ff.label :school_name
+            = ff.text_field :school_name
+          = f.label :teacher, "I'm a Teacher"
+          = f.check_box :teacher ,value: "true"
 
-                %label
-                  Upload Photo:
-                = f.label :image_path
-                = f.file_field :image_path
+          %label
+            Upload Photo:
+          //= f.label :image_path
+          = f.file_field :image_path
 
-                = f.submit value: "register", :class => 'btn btn-edswap'
-        .row
-          .col-lg-12
-            .disclaimer
-              %h6 EdSwap does not share any of your personal data.
-              /*We use facebook or google login to make it easier and more convenient for you to create an account with us.*/
-              %h6 We use this email address internally as your identity but will never send any spam or give any information to a third party whatsoever.
+          = f.submit value: "register", :class => 'btn btn-edswap'
+        .disclaimer
+          %h6 EdSwap does not share any of your personal data.
+          /*We use facebook or google login to make it easier and more convenient for you to create an account with us.*/
+          %h6 We use this email address internally as your identity but will never send any spam or give any information to a third party whatsoever.
 :javascript
   $( document ).ready(function() {
     $('#password_reset_button').click(function(){
