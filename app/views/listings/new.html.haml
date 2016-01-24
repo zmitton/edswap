@@ -1,61 +1,67 @@
-%h1.text-center Create a Listing
-%h3 You are logged in as #{current_user.nickname}
-#user_preferences_div
-  %form#user_preferences_form.disabled
-    %h2 Preferences:
-    %label
-      Contact Name
-      %input{:name => "name", :type => "text", value: "#{current_user.try('name') || ''}"}
-    %label
-      Email:
-      %input{:name => "email", :type => "text", value: "#{current_user.try('email') || ''}"}
-    %label
-      Preferred Contact Method:
-      %div#preferred_contact_section
-        %label{for: "text_button"}
-          %input#text_button{type: 'radio', name: 'preferred_contact', value: 'text'}
-            text
-        %label{for: "call_button"}
-          %input#call_button{type: 'radio', name: 'preferred_contact', value: 'call'}
-            call
-            %input#phone_box{:name => "phone", :type => "text", placeholder: 'phone number', disabled: true, value: "#{current_user.try('phone') || ''}"}
-        %label{for: "email_button"}
-          %input#email_button{type: 'radio', name: 'preferred_contact', value: 'email'}
-            email
-            %input#email_box{:name => "email", :type => "text", placeholder: 'preferred email ', disabled: true, value: "#{current_user.try('email') || ''}"}
-
-#create_listing_div
-  %h3 Create new listing
-  = form_for @listing, url: url_for(controller: 'listings', action: "create"), html: { class: "create_listing_form directUpload", data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f|
-    %label
-      Title
-      = f.text_field :subject, id: "title_box", required: true
-    %label
-      I'd like to:
-    %label{for: "lend_box"}
-      Lending
-      = f.check_box :lending,   value: true, id: "lend_box",   name: "listing[lending]"
-    %label{for: "sell_box"}
-      Selling
-      = f.check_box :selling,   value: true, id: "sell_box",   name: "listing[selling]"
-    %label{for: "buy_box"}
-      Buying
-      = f.check_box :buying,    value: true, id: "buy_box",    name: "listing[buying]"
-    %label{for: "borrow_box"}
-      Borrowing
-      = f.check_box :borrowing, value: true, id: "borrow_box", name: "listing[borrowing]"
-    %label{for: "trade_box"}
-      Trading
-      = f.check_box :trading,   value: true, id: "trade_box",  name: "listing[trading]"
-    %label
-      Description:
-      = f.text_area :body, required: true
-    = f.fields_for :listing_image do |ff|
-      %label 
-        Upload Photo:
-        = ff.label :image_path
-        = ff.file_field :image_path
-    = f.submit :submit, class: "btn btn-edswap", value: "submit"
+.form-style-10
+  %h1.text-center
+    Create a Listing
+  %form#user_preferences_form.disabled.form-style-10
+    .section
+      //%h3 You are logged in as #{current_user.nickname}
+      %span> 1
+      %h3 Account Details
+    .inner-wrap
+      %label.form-text-field
+        Contact Name
+        %input{:name => "name", :type => "text", value: "#{current_user.try('name') || ''}"}
+      %label.form-text-field
+        Email:
+        %input{:name => "email", :type => "text", value: "#{current_user.try('email') || ''}"}
+    .section
+      %span> 2
+      %h3 Preferred Contact Method:
+    .inner-wrap
+      %label.listing-checkbox{for: "text_button"}
+        %input#text_button{type: 'radio', name: 'preferred_contact', value: 'text'}
+          Text
+      %label.listing-checkbox.form-text-field{for: "call_button"}
+        %input#call_button{type: 'radio', name: 'preferred_contact', value: 'call'}
+          Call
+          %input#phone_box{:name => "phone", :type => "text", placeholder: 'phone number', disabled: true, value: "#{current_user.try('phone') || ''}"}
+      %label.listing-checkbox.form-text-field{for: "email_button"}
+        %input#email_button{type: 'radio', name: 'preferred_contact', value: 'email'}
+          Email
+          %input#email_box{:name => "email", :type => "text", placeholder: 'preferred email ', disabled: true, value: "#{current_user.try('email') || ''}"}
+    .section
+      %span> 3
+      %h3 Create new listing
+    .inner-wrap
+      = form_for @listing, url: url_for(controller: 'listings', action: "create"), html: { class: "create_listing_form directUpload", data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f|
+        %label.form-text-field
+          Title
+          = f.text_field :subject, id: "title_box", required: true
+        %label.listing-checkbox
+          I'd like to:
+        %label.listing-checkbox{for: "lend_box"}
+          = f.check_box :lending,   value: true, id: "lend_box",   name: "listing[lending]"
+          Lend
+        %label.listing-checkbox{for: "sell_box"}
+          = f.check_box :selling,   value: true, id: "sell_box",   name: "listing[selling]"
+          Sell
+        %label.listing-checkbox{for: "buy_box"}
+          = f.check_box :buying,    value: true, id: "buy_box",    name: "listing[buying]"
+          Buy
+        %label.listing-checkbox{for: "borrow_box"}
+          = f.check_box :borrowing, value: true, id: "borrow_box", name: "listing[borrowing]"
+          Borrow
+        %label.listing-checkbox{for: "trade_box"}
+          = f.check_box :trading,   value: true, id: "trade_box",  name: "listing[trading]"
+          Trade
+        %label.form-text-field
+          Description:
+          = f.text_area :body, required: true
+        = f.fields_for :listing_image do |ff|
+          %label.listing-photo
+            Upload Photo:
+            //= ff.label :image_path
+            = ff.file_field :image_path
+        = f.submit :submit, class: "btn btn-edswap", value: "Post Now"
 
 
 
