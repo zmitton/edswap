@@ -16,7 +16,10 @@ class CreateUsers < ActiveRecord::Migration
       t.datetime :password_reset_code_expires_at
 
       t.string :image_path
+      
       t.boolean :teacher
+      t.boolean :parent
+      t.boolean :community_member
 
       t.timestamps null: false
     end

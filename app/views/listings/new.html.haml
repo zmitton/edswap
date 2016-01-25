@@ -31,37 +31,37 @@
     .section
       %span> 3
       %h3 Create new listing
-    .inner-wrap
-      = form_for @listing, url: url_for(controller: 'listings', action: "create"), html: { class: "create_listing_form directUpload", data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f|
-        %label.form-text-field
-          Title
-          = f.text_field :subject, id: "title_box", required: true
-        %label.listing-checkbox
-          I'd like to:
-        %label.listing-checkbox{for: "lend_box"}
-          = f.check_box :lending,   value: true, id: "lend_box",   name: "listing[lending]"
-          Lend
-        %label.listing-checkbox{for: "sell_box"}
-          = f.check_box :selling,   value: true, id: "sell_box",   name: "listing[selling]"
-          Sell
-        %label.listing-checkbox{for: "buy_box"}
-          = f.check_box :buying,    value: true, id: "buy_box",    name: "listing[buying]"
-          Buy
-        %label.listing-checkbox{for: "borrow_box"}
-          = f.check_box :borrowing, value: true, id: "borrow_box", name: "listing[borrowing]"
-          Borrow
-        %label.listing-checkbox{for: "trade_box"}
-          = f.check_box :trading,   value: true, id: "trade_box",  name: "listing[trading]"
-          Trade
-        %label.form-text-field
-          Description:
-          = f.text_area :body, required: true
-        = f.fields_for :listing_image do |ff|
-          %label.listing-photo
-            Upload Photo:
-            //= ff.label :image_path
-            = ff.file_field :image_path
-        = f.submit :submit, class: "btn btn-edswap", value: "Post Now"
+  .inner-wrap#create_listing_div
+    = form_for @listing, url: url_for(controller: 'listings', action: "create"), html: { class: "create_listing_form directUpload", data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f|
+      %label.form-text-field
+        Title
+        = f.text_field :subject, id: "title_box", required: true
+      %label.listing-checkbox
+        I'd like to:
+      %label.listing-checkbox{for: "lend_box"}
+        = f.check_box :lending,   value: true, id: "lend_box",   name: "listing[lending]"
+        Lend
+      %label.listing-checkbox{for: "sell_box"}
+        = f.check_box :selling,   value: true, id: "sell_box",   name: "listing[selling]"
+        Sell
+      %label.listing-checkbox{for: "buy_box"}
+        = f.check_box :buying,    value: true, id: "buy_box",    name: "listing[buying]"
+        Buy
+      %label.listing-checkbox{for: "borrow_box"}
+        = f.check_box :borrowing, value: true, id: "borrow_box", name: "listing[borrowing]"
+        Borrow
+      %label.listing-checkbox{for: "trade_box"}
+        = f.check_box :trading,   value: true, id: "trade_box",  name: "listing[trading]"
+        Trade
+      %label.form-text-field
+        Description:
+        = f.text_area :body, required: true
+      = f.fields_for :listing_image do |ff|
+        %label.listing-photo
+          Upload Photo:
+          //= ff.label :image_path
+          = ff.file_field :image_path
+      = f.submit :submit, class: "btn btn-edswap", value: "Post Now"
 
 
 
