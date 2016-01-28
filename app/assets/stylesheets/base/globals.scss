@@ -40,9 +40,6 @@ nav.navbar.nav-pills {
     color: $menu-text;
     text-transform: uppercase;
   }
-  img {
-    padding-top: 9px;
-  }
 }
 
 .navbar-right li a {
@@ -251,4 +248,24 @@ input#user_teacher, input#user_image_path {
 
 .tab-container {
   padding-bottom: 75px;
+}
+
+#meet-the-team .container {
+  padding: 0px 100px 80px 100px;
+}
+
+.mission-vision {
+  padding-top: 50px;
+  padding-bottom: 80px
+}
+
+.page-margins {
+  margin: 50px 100px 50px 100px;
+}
+
+.listings.row:nth-child(odd) {
+  background: #FFF;
+}
+.listings.row:nth-child(even) {
+  background: #333;
 }

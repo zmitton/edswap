@@ -7,13 +7,13 @@
   - @listings.each do |listing|
     .row
       .col-md-7
-        - if listing.has_image? 
+        - if listing.has_image?
           = image_tag(listing.main_image_path, class: "img-responsive", width: "500px")
       .col-md-5
         %h3
           = listing.subject
         %h4
-        %p 
+        %p
           = listing.body
         %a.btn.btn-edswap{:href => listing_path(listing.id)}
           View Listing

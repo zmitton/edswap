@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 20160111180137) do
     t.datetime "password_reset_code_expires_at"
     t.string   "image_path"
     t.boolean  "teacher"
+    t.boolean  "parent"
+    t.boolean  "community_member"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
   end

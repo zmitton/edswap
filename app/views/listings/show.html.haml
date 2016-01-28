@@ -1,15 +1,18 @@
-.row
-  .col-md-6.col-sm-12
-    %h1
-      = @listing.subject
-    %h2
-      Author:
-      = @author.name
-    %h3
-      Contact at:
-      = "#{@listing.temp_email_address.temp_email_address}@edswap.org"
-    %p
-      = @listing.body
-  .col-md-6.col-sm-12
-    - @listing.listing_images.each do |image|
-      = image_tag(image.image_path, width: "500px")
+%section.page-margins.text-center
+  .row
+    .col-md-6.col-sm-12
+      %h2
+        = @listing.subject
+      %h4
+        Posted by:
+        = @author.name
+      %h4
+        Contact at:
+        = "#{@listing.temp_email_address.temp_email_address}@edswap.org"
+      %h2
+        Information:
+      %p
+        = @listing.body
+    .col-md-6.col-sm-12
+      - @listing.listing_images.each do |image|
+        = image_tag(image.image_path, width: "500px")
