@@ -1,41 +1,75 @@
-.container.listings
-  .row
-    .col-lg-12
-      %h1.page-header
-        %h1 Listings
-        /%small Secondary Text
-  - @listings.each do |listing|
+%section.search-form
+  .container
     .row
-      .col-md-7
-        - if listing.has_image?
-          = image_tag(listing.main_image_path, class: "img-responsive", width: "500px")
-      .col-md-5
-        %h3
-          = listing.subject
-        %h4
-        %p
-          = listing.body
-        %a.btn.btn-edswap{:href => listing_path(listing.id)}
-          View Listing
-          %span.glyphicon.glyphicon-chevron-right
-    / /.row
+      .col-md-12
+        #adv-search.input-group
+          %input.form-control{:placeholder => "Search Listings", :type => "text"}/
+          .input-group-btn
+            .btn-group{:role => "group"}
+              .dropdown.dropdown-lg
+                %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
+                  %span.caret
+                .dropdown-menu.dropdown-menu-right{:role => "menu"}
+                  %form.form-horizontal{:role => "form"}
+                    .form-group
+                      %label{:for => "filter"} Category
+                      %select.form-control
+                        %option{:selected => "", :value => "0"} All Listings
+                        %option{:value => "1"} Borrow
+                        %option{:value => "2"} Buy
+                        %option{:value => "3"} Lend
+                        %option{:value => "4"} Free
+                        %option{:value => "5"} Trade
+                    .form-group
+                      %label{:for => "contain"} User Name
+                      %input.form-control{:type => "text"}/
+                    .form-group
+                      %label{:for => "contain"} Contains...
+                      %input.form-control{:type => "text"}/
+                    %button.btn.btn-search{:type => "submit"}
+                      %span.glyphicon.glyphicon-search{"aria-hidden" => "true"}
+              %button.btn.btn-search{:type => "button"}
+                %span.glyphicon.glyphicon-search{"aria-hidden" => "true"}
+
+%section.listings
+  .container
+    .row
+      .col-lg-12
+        %h1.page-header
+          Listings
+          /%small Secondary Text
+    - @listings.each do |listing|
+      .row
+        .col-md-7
+          - if listing.has_image?
+            = image_tag(listing.main_image_path, class: "img-responsive", height: "500px")
+        .col-md-5
+          %h3
+            = listing.subject
+          %h4
+          %p
+            = listing.body
+          %a.btn.btn-edswap{:href => listing_path(listing.id)}
+            View Listing
+            %span.glyphicon.glyphicon-chevron-right
+      / /.row
+      %hr/
     %hr/
-  %hr/
-  / Pagination
-  .row.text-center
-    .col-lg-12
-      / %ul.pagination
-      /   %li
-      /     %a{:href => "#"} «
-      /   %li.active
-      /     %a{:href => "#"} 1
-      /   %li
-      /     %a{:href => "#"} 2
-      /   %li
-      /     %a{:href => "#"} 3
-      /   %li
-      /     %a{:href => "#"} 4
-      /   %li
-      /     %a{:href => "#"} 5
-      /   %li
-      /     %a{:href => "#"} »
+    / Pagination
+    .row.text-center
+      .col-lg-12
+        / %ul.pagination
+        /   %li
+        /     %a{:href => "#"} «
+        /   %li.active
+        /     %a{:href => "#"} 1
+        /   %li
+        /     %a{:href => "#"} 2
+        /   %li
+        /     %a{:href => "#"} 3
+        /   %li
+        /     %a{:href => "#"} 4
+        /   %li
+        /     %a{:href => "#"} 5
+        /   %li
+        /     %a{:href => "#"} »
