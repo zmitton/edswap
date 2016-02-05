@@ -1,6 +1,4 @@
 .form-style-10
-  %h1.text-center
-    Create a Listing
   / %form#user_preferences_form.disabled.form-style-10
   /   .section
   /     //%h3 You are logged in as #{current_user.nickname}
@@ -23,11 +21,11 @@
   /     %label.listing-checkbox.form-text-field{for: "call_button"}
   /       %input#call_button{type: 'radio', name: 'preferred_contact', value: 'call'}
   /         Call
-  /         %input#phone_box{:name => "phone", :type => "text", placeholder: 'phone number', disabled: true, value: "#{current_user.try('phone') || ''}"}
+  /         %input#phone_box{:name => "phone", :type => "text", placeholder: 'phone number', value: "#{current_user.try('phone') || ''}"}
   /     %label.listing-checkbox.form-text-field{for: "email_button"}
   /       %input#email_button{type: 'radio', name: 'preferred_contact', value: 'email'}
   /         Email
-  /         %input#email_box{:name => "email", :type => "text", placeholder: 'preferred email ', disabled: true, value: "#{current_user.try('email') || ''}"}
+  /         %input#email_box{:name => "email", :type => "text", placeholder: 'preferred email ', value: "#{current_user.try('email') || ''}"}
   /   .section
   /     %span> 3
   /     %h3 Create new listing
@@ -46,7 +44,7 @@
         Sell
       %label.listing-checkbox{for: "buy_box"}
         = f.check_box :buying,    value: true, id: "buy_box",    name: "listing[buying]"
-        Buy
+        Give Away
       %label.listing-checkbox{for: "borrow_box"}
         = f.check_box :borrowing, value: true, id: "borrow_box", name: "listing[borrowing]"
         Borrow

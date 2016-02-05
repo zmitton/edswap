@@ -11,11 +11,10 @@
 %body
   %nav.navbar.navbar-fixed-top.nav-pills
     .container
-      .navbar-logo
       %a{href: "/listings"}
         =image_tag "edswap-orange.png", :height => "50"
         - if current_user
-          Hi #{current_user.nickname}
+          // Hi #{current_user.nickname} NEEDS TO BE FIXED, not part of %a
       %ul.nav.navbar-nav.navbar-right
         / %li= link_to "Forums"
         %li= link_to "Mission", mission_path

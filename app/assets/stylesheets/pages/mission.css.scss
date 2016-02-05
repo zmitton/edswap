@@ -1,0 +1,28 @@
+
+#meet-the-team .container {
+  padding: 0px 100px 80px 100px;
+}
+
+.mission-vision {
+  padding-top: 50px;
+  padding-bottom: 80px
+}
+
+#meet-the-team {
+  background-color: $lt-contrast;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  img {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  }
+  h2 {
+    margin-bottom: 25px;
+  }
+}
+
+article {
+  margin: 0 150px;
+}
