@@ -1,36 +1,36 @@
 .form-style-10
   %h1.text-center
     Create a Listing
-  %form#user_preferences_form.disabled.form-style-10
-    .section
-      //%h3 You are logged in as #{current_user.nickname}
-      %span> 1
-      %h3 Account Details
-    .inner-wrap
-      %label.form-text-field
-        Contact Name
-        %input{:name => "name", :type => "text", value: "#{current_user.try('name') || ''}"}
-      %label.form-text-field
-        Email:
-        %input{:name => "email", :type => "text", value: "#{current_user.try('email') || ''}"}
-    .section
-      %span> 2
-      %h3 Preferred Contact Method:
-    .inner-wrap
-      %label.listing-checkbox{for: "text_button"}
-        %input#text_button{type: 'radio', name: 'preferred_contact', value: 'text'}
-          Text
-      %label.listing-checkbox.form-text-field{for: "call_button"}
-        %input#call_button{type: 'radio', name: 'preferred_contact', value: 'call'}
-          Call
-          %input#phone_box{:name => "phone", :type => "text", placeholder: 'phone number', disabled: true, value: "#{current_user.try('phone') || ''}"}
-      %label.listing-checkbox.form-text-field{for: "email_button"}
-        %input#email_button{type: 'radio', name: 'preferred_contact', value: 'email'}
-          Email
-          %input#email_box{:name => "email", :type => "text", placeholder: 'preferred email ', disabled: true, value: "#{current_user.try('email') || ''}"}
-    .section
-      %span> 3
-      %h3 Create new listing
+  / %form#user_preferences_form.disabled.form-style-10
+  /   .section
+  /     //%h3 You are logged in as #{current_user.nickname}
+  /     %span> 1
+  /     %h3 Account Details
+  /   .inner-wrap
+  /     %label.form-text-field
+  /       Contact Name
+  /       %input{:name => "name", :type => "text", value: "#{current_user.try('name') || ''}"}
+  /     %label.form-text-field
+  /       Email:
+  /       %input{:name => "email", :type => "text", value: "#{current_user.try('email') || ''}"}
+  /   .section
+  /     %span> 2
+  /     %h3 Preferred Contact Method:
+  /   .inner-wrap
+  /     %label.listing-checkbox{for: "text_button"}
+  /       %input#text_button{type: 'radio', name: 'preferred_contact', value: 'text'}
+  /         Text
+  /     %label.listing-checkbox.form-text-field{for: "call_button"}
+  /       %input#call_button{type: 'radio', name: 'preferred_contact', value: 'call'}
+  /         Call
+  /         %input#phone_box{:name => "phone", :type => "text", placeholder: 'phone number', disabled: true, value: "#{current_user.try('phone') || ''}"}
+  /     %label.listing-checkbox.form-text-field{for: "email_button"}
+  /       %input#email_button{type: 'radio', name: 'preferred_contact', value: 'email'}
+  /         Email
+  /         %input#email_box{:name => "email", :type => "text", placeholder: 'preferred email ', disabled: true, value: "#{current_user.try('email') || ''}"}
+  /   .section
+  /     %span> 3
+  /     %h3 Create new listing
   .inner-wrap#create_listing_div
     = form_for @listing, url: url_for(controller: 'listings', action: "create"), html: { class: "create_listing_form directUpload", data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f|
       %label.form-text-field

@@ -28,7 +28,6 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
-    binding.pry
     @listing = Listing.new(listing_params)
     if @listing.save
       ListingImage.create(precedence: 1, image_path: params[:listing][:listing_image][:image_path] , listing_id: @listing.id ) if params[:listing][:listing_image]

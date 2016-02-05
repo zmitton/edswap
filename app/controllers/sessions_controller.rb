@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to (destination_path || root_path)#redirect preferably where they came from
     else
+      @user.setup
       flash.now[:notice] = @user.errors.messages
       render 'users/new' #didnt work so do something else
     end
