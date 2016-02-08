@@ -28,7 +28,7 @@
   /         %input#email_box{:name => "email", :type => "text", placeholder: 'preferred email ', value: "#{current_user.try('email') || ''}"}
   /   .section
   /     %span> 3
-  /     %h3 Create new listing
+  %h1 Create new listing
   .inner-wrap#create_listing_div
     = form_for @listing, url: url_for(controller: 'listings', action: "create"), html: { class: "create_listing_form directUpload", data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f|
       %label.form-text-field

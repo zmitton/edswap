@@ -1,17 +1,18 @@
-//%header.jumbotron.hero-spacer.text-center
-%section.user-profile.page-margins
+%section.user-profile.page-margins.well
   .row
-    .col-lg-12
-      =image_tag image_path(@user.profile_pic), :height => "100"
+    .col-md-4
+      =image_tag image_path(@user.profile_pic), :height => "250"
+    .col-md-8
       %h1
         = "#{@user.name}'s Profile"
       - if @user.teacher
-        %h4
-          Teacher
-      - if @user.id == session[:user_id]
-        %h4
-          = "Preferred Email: #{@user.email}"
-      %h4
-        = "Member since #{time_ago_in_words(@user.created_at)} ago"
-      %h4
-        = "Active #{time_ago_in_words(@user.updated_at)} ago"
+        %h5
+          %span
+            = "Preferred Email: #{@user.email}"
+            =image_tag "edit.png"
+            Edit
+        %p
+          = "Member since #{time_ago_in_words(@user.created_at)} ago"
+        %p
+          = "Active #{time_ago_in_words(@user.updated_at)} ago"
+
