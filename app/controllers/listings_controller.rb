@@ -4,7 +4,8 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+    @search = params[:search]
+    @listings = Listing.where("body ILIKE ? or subject ILIKE ?" , "%#{@search}%", "%#{@search}%").where(active: true)
   end
 
   # GET /listings/1
@@ -28,11 +29,10 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
+    binding.pry
     @listing = Listing.new(listing_params)
     if @listing.save
       ListingImage.create(precedence: 1, image_path: params[:listing][:listing_image][:image_path] , listing_id: @listing.id ) if params[:listing][:listing_image]
-      # auto created before save
-      # TempEmailAddress.create(listing_id: @listing.id, real_email_address: current_user.email)
       redirect_to listing_path(@listing.id), notice: 'Listing was successfully created.'
     else
       flash.now[:notice] = @listing.errors.messages
@@ -67,7 +67,7 @@ class ListingsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:author, :type, :subject, :body, :buying, :selling, :lending, :trading, :borrowing).merge(author_id: current_user.id, active: true)
+      params.require(:listing).permit(:subject, :body, :buying, :selling, :lending, :trading, :borrowing).merge(author_id: current_user.id, active: true)
     end
 
     # Use callbacks to share common setup or constraints between actions.

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root to: 'welcome#splash'
   # root to: 'welcome#index'
-  root to: ENV['ROOT_PAGE']
+  root to: (ENV['ROOT_PAGE'] || 'welcome#index')
 
 
   resources :sessions, only: [:new, :create, :destroy, :show]

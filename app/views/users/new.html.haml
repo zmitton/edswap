@@ -37,7 +37,7 @@
           = f.label :password
           = f.password_field :password, placeholder: "at least 8 characters", required: true
           = f.label :name
-          = f.text_field :name, placeholder: "what you prefer"
+          = f.text_field :name, placeholder: "preferred", required: true
           = f.fields_for :location do |ff|
             = ff.label :address
             = ff.text_field :address

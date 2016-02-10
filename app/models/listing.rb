@@ -17,7 +17,7 @@ class Listing < ActiveRecord::Base
     if listing_images.any?
       listing_images.order(:precedence).first.image_path
     else
-      "/supplies.jpg"
+      "supplies.jpg"
     end
   end
 

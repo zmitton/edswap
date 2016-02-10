@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   has_one :location, as: :locationeable
   accepts_nested_attributes_for :location
+  has_many :listings, foreign_key: "author_id"
 
 
   def profile_pic

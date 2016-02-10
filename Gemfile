@@ -56,3 +56,4 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'carrierwave', '~> 0.9'
 gem 'aws-sdk', '~> 2.2', '>= 2.2.9'
 gem "paperclip", "~> 4.3"
+gem 'faker'
