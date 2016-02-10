@@ -3,6 +3,7 @@
     .row
       .col-md-12
         #adv-search.input-group
+
           %form{action: listings_path}>
             %input.form-control{:placeholder => "Search Listing text", :type => "text", name: "search", value: @search}/
             .input-group-btn
@@ -31,48 +32,107 @@
                         %span.glyphicon.glyphicon-search{"aria-hidden" => "true"}
                 %button.btn.btn-search{:type => "button"}
                   %span.glyphicon.glyphicon-search{"aria-hidden" => "true"}
-
-%section.listings
   .container
-    .row
-      .col-lg-12
-        %h1.page-header
-          Listings
-          /%small Secondary Text
-    - @listings.each do |listing|
-      .row
-        .col-md-7
-          - if listing.has_image?
-            = image_tag(listing.main_image_path, class: "img-responsive", height: "500px")
-          - else
-            = image_tag(image_path(listing.main_image_path), class: "img-responsive", height: "500px")
-        .col-md-5
-          %h3
-            = listing.subject
-          %h4
-          %p
-            = listing.body
-          %a.btn.btn-edswap{:href => listing_path(listing.id)}
-            View Listing
-            %span.glyphicon.glyphicon-chevron-right
-      / /.row
-      %hr/
-    %hr/
-    / Pagination
-    .row.text-center
-      .col-lg-12
-        / %ul.pagination
-        /   %li
-        /     %a{:href => "#"} «
-        /   %li.active
-        /     %a{:href => "#"} 1
-        /   %li
-        /     %a{:href => "#"} 2
-        /   %li
-        /     %a{:href => "#"} 3
-        /   %li
-        /     %a{:href => "#"} 4
-        /   %li
-        /     %a{:href => "#"} 5
-        /   %li
-        /     %a{:href => "#"} »
+    .row.page-margins
+      .col-md-3.hidden-xs.side-categories
+        #accordion.panel-group
+          .panel.panel-default
+            .panel-heading
+              %h4.panel-title
+                %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseOne"}
+                  Category
+            #collapseOne.panel-collapse.collapse.in
+              .panel-body
+                %table.table
+                  %tr
+                    %td
+                      %span.glyphicon.glyphicon-heart-empty
+                      %a{:href => ""}  Give Away
+                  %tr
+                    %td
+                      %span.glyphicon.glyphicon-share-alt
+                      %a{:href => ""}  Lend
+                  %tr
+                    %td
+                      %span.glyphicon.glyphicon-apple
+                      %a{:href => ""}  Borrow
+                  %tr
+                    %td
+                      %span.glyphicon.glyphicon-usd
+                      %a{:href => ""}  Sell
+                      / %span.badge 42
+                  %tr
+                    %td
+                      %span.glyphicon.glyphicon-refresh
+                      %a{:href => ""}  Swap
+          / .panel.panel-default
+          /   .panel-heading
+          /     %h4.panel-title
+          /       %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseTwo"}
+          /         %span.glyphicon.glyphicon-th>
+          /         Modules
+          /   #collapseTwo.panel-collapse.collapse
+          /     .panel-body
+          /       %table.table
+          /         %tr
+          /           %td
+          /             %a{:href => "http://www.jquery2dotnet.com"} Orders
+          /             %span.label.label-success $ 320
+          /         %tr
+          /           %td
+          /             %a{:href => "http://www.jquery2dotnet.com"} Invoices
+          /         %tr
+          /           %td
+          /             %a{:href => "http://www.jquery2dotnet.com"} Shipments
+          /         %tr
+          /           %td
+          /             %a{:href => "http://www.jquery2dotnet.com"} Tex
+          / .panel.panel-default
+          /   .panel-heading
+          /     %h4.panel-title
+          /       %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseThree"}
+          /         Account
+          /   #collapseThree.panel-collapse.collapse
+          /     .panel-body
+          /       %table.table
+          /         %tr
+          /           %td
+          /             %a{:href => ""} View Profile
+          /         %tr
+          /           %td
+          /             %a{:href => ""} Notifications
+          /             %span.label.label-info 5
+          /         %tr
+          /           %td
+          /             %a{:href => ""} Change Password
+          /         %tr
+          /           %td
+          /             %span.glyphicon.glyphicon-trash.text-danger
+          /             %a.text-danger{:href => ""}
+          /               Delete Account
+
+      .col-sm-9.col-md-9
+        .well.listings
+          .container
+            .row
+              .col-lg-12
+                %h1.page-header
+                  Listings
+                  /%small Secondary Text
+            - @listings.each do |listing|
+              .row
+                .col-md-7
+                  - if listing.has_image?
+                    = image_tag(listing.main_image_path, class: "img-responsive", height: "500px")
+                  - else
+                    = image_tag(image_path(listing.main_image_path), class: "img-responsive", height: "500px")
+                .col-md-5
+                  %h3
+                    = listing.subject
+                  %h4
+                  %p
+                    = listing.body
+                  %a.btn.btn-edswap{:href => listing_path(listing.id)}
+                    View Listing
+                    %span.glyphicon.glyphicon-chevron-right
+              %hr/

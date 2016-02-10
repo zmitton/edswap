@@ -8,7 +8,8 @@
 #user_location_attributes_city,
 #user_location_attributes_state,
 #user_location_attributes_zip,
-#user_location_attributes_school_name
+#user_location_attributes_school_name,
+#user_teacher
  {
   display: block;
   padding: 8px;
@@ -45,7 +46,7 @@
 
 
 .progress {
-  max-width: 275px;
+  max-width: 400px;
   margin: 0.2em 0 0.2em 0;
   margin-bottom: 20px;
 }
@@ -55,4 +56,58 @@
   padding-left: 0.2em;
   color:   white;
   display: none;
+}
+.users {
+  h1 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 2.5em;
+    line-height: 1.5em;
+    letter-spacing: -0.05em;
+    margin-bottom: 20px;
+    padding: .1em 0;
+    color: #444;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+  }
+  h1:before,
+  h1:after {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    height: 1px;
+    vertical-align: middle;
+    background: #f0f0f0;
+  }
+  h1:before {
+    left: -.5em;
+    margin: 0 0 0 -50%;
+  }
+  h1:after {
+    left: .5em;
+    margin: 0 -50% 0 0;
+  }
+  h1 > span {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 767px) {
+  label {
+    text-align: left;
+  }
+}
+
+#user_image_path {
+  background-color: white;
+  min-height: 20px;
+  width: 275px;
+}
+
+#new_user .progress {
+  max-width: 275px;
 }
