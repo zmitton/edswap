@@ -26,7 +26,7 @@ class Listing < ActiveRecord::Base
   end
 
   def location
-    Location.find_by_belongs_to_id(id) || author.location
+    Location.find_by(locationeable_type: "Listing", locationeable_id: id) || author.location
   end
 
   def intensions

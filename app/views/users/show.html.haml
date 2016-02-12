@@ -5,11 +5,13 @@
     .col-md-8
       %h1
         = "#{@user.name}'s Profile"
+      %h3
+        = @user.location.city
       - if @user.teacher
         %h5
           %span
             = "Preferred Email: #{@user.email}"
-            =image_tag "edit.png"
+            = image_tag "edit.png"
             Edit
         %p
           = "Member since #{time_ago_in_words(@user.created_at)} ago"

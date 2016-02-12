@@ -6,6 +6,8 @@
       %h4
         Posted by:
         = @author.name
+      %p
+        = "#{@listing.location.address}, #{@listing.location.city}"
       %h4
         Contact at:
         = "#{@listing.temp_email_address.temp_email_address}@edswap.org"
@@ -14,5 +16,8 @@
       %p
         = @listing.body
     .col-md-6.col-sm-12
-      - @listing.listing_images.each do |image|
-        = image_tag(image.image_path, width: "500px")
+      - if @listing.has_image?
+        - @listing.listing_images.each do |image|
+          = image_tag(image.image_path, width: "500px")
+      - else
+        = image_tag(image_path(@listing.main_image_path), class: "img-responsive", height: "500px")
