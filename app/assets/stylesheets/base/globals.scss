@@ -20,7 +20,9 @@ p {
   font-size: 18px;
 }
 
-nav.navbar.nav-pills {
+nav.navbar {
+
+  
   position: fixed;
   background-color: white;
   width: 100%;
@@ -41,6 +43,11 @@ nav.navbar.nav-pills {
   font-size: 1.1em;
   padding: 0px 60px 0px 60px;
   li a {
+    @media(max-width: 599px) {
+      .nav.nav-text {
+        display: none;
+      }
+    }
     color: $menu-text;
     text-transform: uppercase;
   }
@@ -162,4 +169,5 @@ img {
 .full-screen-margins {
   min-height: 400px;
 }
+
 

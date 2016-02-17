@@ -4,27 +4,27 @@
   %title edSwap
   %script{src: "http://maps.googleapis.com/maps/api/js"}
   = stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true
-  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', params[:controller]
   %meta{name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0"}
   = csrf_meta_tags
 
 %body
-  %nav.navbar.navbar-fixed-top.nav-pills
+  %nav.navbar.navbar-fixed-top
     .container
       %a{href: "/listings"}
         =image_tag "edswap-orange.png", :height => "50"
+      - if current_user
+        %a{href: "/users/#{current_user.id}", id: "nav_user_name"}
+          Hi #{current_user.nickname}
+      %ul.nav.navbar-nav.navbar-right.nav-pills
+        %li= link_to " Mission", mission_path, class: "nav-text fa fa-eye", title: "Mission"
         - if current_user
-          // Hi #{current_user.nickname} NEEDS TO BE FIXED, not part of %a
-      %ul.nav.navbar-nav.navbar-right
-        / %li= link_to "Forums"
-        %li= link_to "Mission", mission_path
-        - if current_user
-          %li= link_to "+ New Listing", new_listing_path
-          %li= link_to "My Account", user_path(session[:user_id])
-          %li= link_to "Sign out", signout_path, id: "sign_out"
+          %li= link_to " New Listing", new_listing_path, class: "nav-text fa fa-pencil-square-o", title: "New Listing"
+          %li= link_to " My Profile", user_path(session[:user_id]), class: "nav-text fa fa-user", title: "My Profile"
+          %li= link_to " Sign out", signout_path, id: "sign_out", class: "nav-text fa fa-sign-out", title: "Sign out"
         - else
-          %li= link_to "+ New Listing", login_path(destination_uri: new_listing_path)
-          %li= link_to "Login / Sign up", login_path
+          %li= link_to " New Listing", login_path(destination_uri: new_listing_path), class: "nav-text fa fa-pencil-square-o", title: "New Listing"
+          %li= link_to " Login / Sign up", login_path, class: "nav-text fa fa-sign-in", title: "Login / Sign up"
   .container
     - flash.each do |name, msg|
       = content_tag :div, msg, class: "alert alert-info"
