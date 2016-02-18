@@ -1,6 +1,6 @@
 /* fullscreen setup */
 body.splash {
-  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(image_path('pencils-blur.jpg')) no-repeat center center fixed;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(image_path('hopscotch.jpg')) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -15,14 +15,14 @@ body.splash {
       margin: 0 auto;
     }
     .find{
-      color: $edswap-green;
+      color: $dk-main;
       font-weight: bold;
-      font-style: italic;
+      font-family: 'Montserrat', sans-serif;
     }
     .swap{
-      color: $edswap-orange;
+      color: $contrast;
       font-weight: bold;
-      font-style: italic;
+      font-family: 'Montserrat Alternates', sans-serif;
     }
   }
   // .social-buttons{
@@ -89,7 +89,12 @@ body.splash {
   footer.transparent-footer {
     background-color: transparent;
   }
-  h3, h4, h5 {
+  h3 {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  h4, h5 {
     margin: 0;
   }
   .list-inline {
@@ -121,6 +126,13 @@ body.splash {
   }
 }
 
+@media (min-width: 767px) {
+  body.splash{
+    h3 {
+      font-size: 45px;
+    }
+  }
+}
   /*
   .splash header {
     padding-top: 120px;

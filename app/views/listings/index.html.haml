@@ -4,31 +4,9 @@
       .col-md-12
         #adv-search.input-group
           %form{action: listings_path}>
-            %input.form-control{:placeholder => "Search Listing text", :type => "text", name: "search", value: @search}/
+            %input.form-control{:placeholder => "What are you looking for?", :type => "text", name: "search", value: @search}/
             .input-group-btn
               .btn-group{:role => "group"}
-                .dropdown.dropdown-lg
-                  %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
-                    %span.caret
-                  .dropdown-menu.dropdown-menu-right{:role => "menu"}
-                    %form.form-horizontal{:role => "form"}
-                      .form-group
-                        %label{:for => "filter"} Category
-                        %select.form-control
-                          %option{:selected => "", :value => "0"} All Listings
-                          %option{:value => "1"} Borrow
-                          %option{:value => "2"} Buy
-                          %option{:value => "3"} Lend
-                          %option{:value => "4"} Free
-                          %option{:value => "5"} Trade
-                      .form-group
-                        %label{:for => "contain"} User Name
-                        %input.form-control{:type => "text"}/
-                      .form-group
-                        %label{:for => "contain"} Contains...
-                        %input.form-control{:type => "text"}/
-                      %button.btn.btn-search{:type => "submit"}
-                        %span.glyphicon.glyphicon-search{"aria-hidden" => "true"}
                 %button.btn.btn-search{:type => "button"}
                   %span.glyphicon.glyphicon-search{"aria-hidden" => "true"}
   .container
@@ -111,7 +89,7 @@
           /             %a.text-danger{:href => ""}
           /               Delete Account
 
-      .col-sm-9.col-md-9
+      .col-xs-12.col-md-9
         .well.listings
           .container
             .row

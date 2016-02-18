@@ -5,6 +5,7 @@
 body {
   background-color: $background;
   margin-top: 100px;
+  // font-family: 'Montserrat Alternates', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -19,6 +20,12 @@ h6 {
 p {
   font-size: 18px;
 }
+
+a {
+  color: $dk-main;
+}
+
+
 
 nav.navbar.nav-pills {
   position: fixed;
@@ -41,7 +48,6 @@ nav.navbar.nav-pills {
   font-size: 1.1em;
   padding: 0px 60px 0px 60px;
   li a {
-    color: $menu-text;
     text-transform: uppercase;
   }
   .container {
@@ -61,11 +67,7 @@ nav.navbar.nav-pills {
   margin-top: 15px;
 }
 
-.nav>li>a:hover,
-.nav>li>a:focus {
-  background-color: $contrast;
-  color: white;
-}
+
 
 #status a#sign_in_w_google,
 #status a#sign_in {
@@ -89,6 +91,7 @@ nav.navbar.nav-pills {
   text-transform: uppercase;
   border-color: none;
   font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   min-width: 165px;
     &:visited {
@@ -138,9 +141,8 @@ label {
   margin-bottom: 0px;
 }
 
-
 .page-margins {
-  margin: 50px 100px 50px 100px;
+  margin: 25px 10px;
 }
 
 i.fa.fa-square.fa-stack-2x.text-primary {
@@ -162,4 +164,10 @@ img {
 .full-screen-margins {
   min-height: 400px;
 }
-
+.nav>li>a:hover,
+.nav>li>a:focus {
+  background-color: $lt-contrast;
+  color: $contrast;
+  text-decoration: bold;
+  border-radius: 4px;
+}
