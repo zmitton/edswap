@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-sprockets
 //= require jquery.ui.widget
 //= require z.jquery.fileupload
+//= require bootstrap-sprockets
 
 $( document ).ready(function() {
   $(function() {

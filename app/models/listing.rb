@@ -1,13 +1,22 @@
 class Listing < ActiveRecord::Base
   has_many :listing_images
   belongs_to :author, class_name: "User", foreign_key: "author_id"
+  before_save :get_bay_area
   after_save :generate_temp_email
   validates_presence_of :subject
   validates_presence_of :body
+  validates_presence_of :zip
 
   has_one :location, as: :locationeable
 
   INTENTIONS = [:buying, :selling, :lending, :trading, :borrowing]
+
+  def get_bay_area
+    ListingConcern::BAYS.each do |bay, zips|
+      self.bay_area = bay if zips.include?(zip)
+    end
+    false
+  end
 
   def generate_temp_email
     TempEmailAddress.find_or_create_by(listing_id: id, real_email_address: author.email)

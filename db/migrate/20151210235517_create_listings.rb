@@ -5,6 +5,8 @@ class CreateListings < ActiveRecord::Migration
       t.string :subject
       t.text :body
       t.boolean :active
+      t.string :zip
+      t.string :bay_area
 
       t.boolean :buying
       t.boolean :selling

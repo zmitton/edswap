@@ -66,7 +66,7 @@ class ListingsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:subject, :body, :buying, :selling, :lending, :trading, :borrowing).merge(author_id: current_user.id, active: true)
+      params.require(:listing).permit(:subject, :body, :buying, :selling, :lending, :trading, :borrowing, :zip).merge(author_id: current_user.id, active: true)
     end
 
     # Use callbacks to share common setup or constraints between actions.

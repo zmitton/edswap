@@ -1,3 +1,4 @@
+
 %section.search-form
   .container
     .row
@@ -138,4 +139,5 @@
                     View Listing
                     %span.glyphicon.glyphicon-chevron-right
               %hr/
-
+=content_for :javascript do
+  = javascript_include_tag 'listings.js'

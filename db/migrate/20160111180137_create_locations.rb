@@ -8,6 +8,7 @@ class CreateLocations < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :zip
+      t.string :bay_area
       t.string :x_coord
       t.string :y_coord
     end

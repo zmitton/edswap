@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20160111180137) do
     t.string   "subject"
     t.text     "body"
     t.boolean  "active"
+    t.string   "zip"
+    t.string   "bay_area"
     t.boolean  "buying"
     t.boolean  "selling"
     t.boolean  "lending"
@@ -46,6 +48,7 @@ ActiveRecord::Schema.define(version: 20160111180137) do
     t.string  "city"
     t.string  "state"
     t.string  "zip"
+    t.string  "bay_area"
     t.string  "x_coord"
     t.string  "y_coord"
   end
