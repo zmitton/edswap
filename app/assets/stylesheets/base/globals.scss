@@ -2,6 +2,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 body {
   background-color: $background;
   margin-top: 100px;
@@ -11,6 +12,14 @@ body {
 h1, h2, h3, h4, h5, h6, p {
     font-weight: 200;
 }
+
+h3 {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 45px;
+  //font-family: 'Montserrat Alternates', sans-serif;
+}
+
 
 h6 {
   font-size: 10px;
@@ -104,11 +113,11 @@ nav.navbar.nav-pills {
   }
 }
 
-footer {
-  background-color: $dk-main;
-  color: white;
-  padding: 20px;
-}
+// footer {
+//   background-color: $dk-main;
+//   color: white;
+//   padding: 20px;
+// }
 
 label {
   float: left;
@@ -171,3 +180,4 @@ img {
   text-decoration: bold;
   border-radius: 4px;
 }
+
