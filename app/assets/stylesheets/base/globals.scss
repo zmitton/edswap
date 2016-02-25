@@ -29,12 +29,12 @@ h6 {
 p {
   font-size: 18px;
 }
-  
+
 a {
   color: $dk-main;
 }
 
-nav.navbar.nav-pills {
+nav.navbar {
   position: fixed;
   background-color: white;
   width: 100%;
@@ -69,6 +69,7 @@ nav.navbar.nav-pills {
   }
 }
 
+#nav_user_name span,
 .navbar-right li a {
   font-size: 1.1em;
   //text-shadow: 1px 1px #333;
@@ -79,8 +80,6 @@ nav.navbar.nav-pills {
   padding-right: 60px;
   margin-top: 15px;
 }
-
-
 
 #status a#sign_in_w_google,
 #status a#sign_in {
@@ -219,7 +218,7 @@ select {
     right: 0;
     left: auto;
     bottom: 0;
-    top: 20px
+    top: 100px
 }
 
 .scrollit {
@@ -234,13 +233,28 @@ select {
     right: 0;
     left: auto;
     bottom: 0;
-    top: 20px
+    top: 100px
   }
-
+  .search-box form {
+    margin-top: 35px;
+  }
+  input.form-control {
+    min-width: 191px;
+  }
   .scrollit {
     float: left;
     width: 55%
   }
+ .navbar-right {
+    float: right;
+  }
+  .navbar-right li a span {
+  display: none;
+  }
+  .mission-vision article {
+    margin: 0 30px;
+  }
+
 }
 
 

@@ -63,8 +63,12 @@ input#user_teacher, input#user_image_path {
   button.btn.btn-search {
     color: white;
     background-color: $contrast;
-    float: right;
-    margin-bottom: 15px;
+    height: 40px;
+  }
+
+  .dropdown-toggle {
+    border-radius: 0px;
+    height: 40px;
   }
 
   label {
@@ -93,6 +97,7 @@ input#user_teacher, input#user_image_path {
       .dropdown.dropdown-lg .dropdown-menu {
           min-width: 500px;
       }
+
   }
 
 }
