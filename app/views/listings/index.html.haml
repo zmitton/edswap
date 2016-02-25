@@ -1,4 +1,3 @@
-
 %section.search-form
   .container
     .row
@@ -15,46 +14,19 @@
     .row
       .col-md-8.scrollit
         .row.text-center
-            - @listings.each do |listing|
-              
-              .col-md-6.col-sm-6.hero-feature
-                .thumbnail
-                  - if listing.has_image?
-                    = image_tag(listing.main_image_path, class: "img-responsive", height: "500px")
-                  - else
-                    = image_tag(image_path(listing.main_image_path), class: "img-responsive", height: "500px")
-                  .caption
-                    %h3 TITLE
-      .col-md-4.fixed
-        #googleMap{style: "width:100%;height:600px;"}
+        - @listings.each do |listing|
+
+          .col-md-4.col-xl-4.col-xs-12.col-sm-6.hero-feature
+            .thumbnail
+              - if listing.has_image?
+                = image_tag(listing.main_image_path, class: "img-responsive", height: "500px")
+              - else
+                = image_tag(image_path(listing.main_image_path), class: "img-responsive", height: "500px")
+              .caption
+                %h3 TITLE
+  .col-md-4.fixed
+    #googleMap{style: "width:100%;height:600px;"}
 
 =content_for :javascript do
   = javascript_include_tag 'listings.js'
-      / .col-xs-12.col-md-9
-      /   .well.listings
-      /     .container
-      /       .row
-      /         .col-lg-12
-      /           %h1.page-header
-      /             Listings
-      /             /%small Secondary Text
-      /       - @listings.each do |listing|
-      /         .row
-      /           .col-md-7
-      /             - if listing.has_image?
-      /               = image_tag(listing.main_image_path, class: "img-responsive", height: "500px")
-      /             - else
-      /               = image_tag(image_path(listing.main_image_path), class: "img-responsive", height: "500px")
-      /           .col-md-5
-      /             %h3
-      /               = listing.subject
-      /             %h4.location
-      /               - location = listing.location
-      /               = "#{location.city}, #{location.address}"
-      /             %p
-      /               = listing.body
-      /             %a.btn.btn-edswap{:href => listing_path(listing.id)}
-      /               View Listing
-      /               %span.glyphicon.glyphicon-chevron-right
-      /         %hr/
 

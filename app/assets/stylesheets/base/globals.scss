@@ -184,5 +184,63 @@ img {
   text-decoration: bold;
   border-radius: 4px;
 }
+// select {
+//    background-color:white;
+//    width: 180px;
+//    padding: 5px;
+//    font-size: 16px;
+//    border: 1px solid #ccc;
+//    height: 34px;
+//    border-radius: none
+// }
+
+select {
+    -moz-appearance:button;
+    -webkit-appearance:button;
+    border:1px solid #766A62;
+    background:#fff;
+    -moz-border-radius:0;
+    -webkit-border-radius:0;
+    border-radius:0;
+    -webkit-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -webkit-user-select: none;
+    color: #766A62;
+    font-size: inherit;
+    margin: 0;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.fixed {
+    position: fixed;
+    width: 25%;
+    right: 0;
+    left: auto;
+    bottom: 0;
+    top: 20px
+}
+
+.scrollit {
+        float: left;
+        width: 74%
+}
+
+@media (max-width: 767px) {
+  .fixed {
+    position: fixed;
+    width: 45%;
+    right: 0;
+    left: auto;
+    bottom: 0;
+    top: 20px
+  }
+
+  .scrollit {
+    float: left;
+    width: 55%
+  }
+}
 
 

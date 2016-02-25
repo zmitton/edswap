@@ -1,5 +1,14 @@
 $( document ).ready(function() {
   initMap();
+  $(window).resize(function() {
+    if ($(window).width() < 480) {
+        $('.list-ads').removeClass('scrollit');
+        $('.map-fixed').removeClass('fixed');
+    } else {
+        $('.list-ads').addClass('scrollit');
+        $('.map-fixed').addClass('fixed');
+    }
+}).resize(); // trigger resize event initially
   $('#preferred_contact_section [name="preferred_contact"]').on('click', function(){
     if( $('#text_button').prop('checked') || $('#call_button').prop('checked')){
       $('#phone_box').prop( "disabled", false);
@@ -40,3 +49,5 @@ function initMap() {
     // });
   }
 }
+
+
