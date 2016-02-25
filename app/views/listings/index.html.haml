@@ -5,139 +5,56 @@
       .col-md-12
         #adv-search.input-group
           %form{action: listings_path}>
-            %input.form-control{:placeholder => "Search Listing text", :type => "text", name: "search", value: @search}/
+            %input.form-control{:placeholder => "What are you looking for?", :type => "text", name: "search", value: @search}/
             .input-group-btn
               .btn-group{:role => "group"}
-                .dropdown.dropdown-lg
-                  %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
-                    %span.caret
-                  .dropdown-menu.dropdown-menu-right{:role => "menu"}
-                    %form.form-horizontal{:role => "form"}
-                      .form-group
-                        %label{:for => "filter"} Category
-                        %select.form-control
-                          %option{:selected => "", :value => "0"} All Listings
-                          %option{:value => "1"} Borrow
-                          %option{:value => "2"} Buy
-                          %option{:value => "3"} Lend
-                          %option{:value => "4"} Free
-                          %option{:value => "5"} Trade
-                      .form-group
-                        %label{:for => "contain"} User Name
-                        %input.form-control{:type => "text"}/
-                      .form-group
-                        %label{:for => "contain"} Contains...
-                        %input.form-control{:type => "text"}/
-                      %button.btn.btn-search{:type => "submit"}
-                        %span.glyphicon.glyphicon-search{"aria-hidden" => "true"}
                 %button.btn.btn-search{:type => "button"}
                   %span.glyphicon.glyphicon-search{"aria-hidden" => "true"}
-  .container
-    #googleMap{style: "width:100%;height:380px;"}
-    .row.page-margins
-      .col-md-3.hidden-xs.side-categories
-        #accordion.panel-group
-          .panel.panel-default
-            .panel-heading
-              %h4.panel-title
-                %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseOne"}
-                  Category
-            #collapseOne.panel-collapse.collapse.in
-              .panel-body
-                %table.table
-                  %tr
-                    %td
-                      %span.glyphicon.glyphicon-heart-empty
-                      %a{:href => ""}  Give Away
-                  %tr
-                    %td
-                      %span.glyphicon.glyphicon-share-alt
-                      %a{:href => ""}  Lend
-                  %tr
-                    %td
-                      %span.glyphicon.glyphicon-apple
-                      %a{:href => ""}  Borrow
-                  %tr
-                    %td
-                      %span.glyphicon.glyphicon-usd
-                      %a{:href => ""}  Sell
-                      / %span.badge 42
-                  %tr
-                    %td
-                      %span.glyphicon.glyphicon-refresh
-                      %a{:href => ""}  Swap
-          / .panel.panel-default
-          /   .panel-heading
-          /     %h4.panel-title
-          /       %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseTwo"}
-          /         %span.glyphicon.glyphicon-th>
-          /         Modules
-          /   #collapseTwo.panel-collapse.collapse
-          /     .panel-body
-          /       %table.table
-          /         %tr
-          /           %td
-          /             %a{:href => "http://www.jquery2dotnet.com"} Orders
-          /             %span.label.label-success $ 320
-          /         %tr
-          /           %td
-          /             %a{:href => "http://www.jquery2dotnet.com"} Invoices
-          /         %tr
-          /           %td
-          /             %a{:href => "http://www.jquery2dotnet.com"} Shipments
-          /         %tr
-          /           %td
-          /             %a{:href => "http://www.jquery2dotnet.com"} Tex
-          / .panel.panel-default
-          /   .panel-heading
-          /     %h4.panel-title
-          /       %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseThree"}
-          /         Account
-          /   #collapseThree.panel-collapse.collapse
-          /     .panel-body
-          /       %table.table
-          /         %tr
-          /           %td
-          /             %a{:href => ""} View Profile
-          /         %tr
-          /           %td
-          /             %a{:href => ""} Notifications
-          /             %span.label.label-info 5
-          /         %tr
-          /           %td
-          /             %a{:href => ""} Change Password
-          /         %tr
-          /           %td
-          /             %span.glyphicon.glyphicon-trash.text-danger
-          /             %a.text-danger{:href => ""}
-          /               Delete Account
 
-      .col-sm-9.col-md-9
-        .well.listings
-          .container
-            .row
-              .col-lg-12
-                %h1.page-header
-                  Listings
-                  /%small Secondary Text
+  .container.recent-ads
+    .row
+      .col-md-8.scrollit
+        .row.text-center
             - @listings.each do |listing|
-              .row
-                .col-md-7
+              
+              .col-md-6.col-sm-6.hero-feature
+                .thumbnail
                   - if listing.has_image?
                     = image_tag(listing.main_image_path, class: "img-responsive", height: "500px")
                   - else
                     = image_tag(image_path(listing.main_image_path), class: "img-responsive", height: "500px")
-                .col-md-5
-                  %h3
-                    = listing.subject
-                  %h4.location
-                    - location = listing.location
-                    = "#{location.city}, #{location.address}"
-                  %p
-                    = listing.body
-                  %a.btn.btn-edswap{:href => listing_path(listing.id)}
-                    View Listing
-                    %span.glyphicon.glyphicon-chevron-right
-              %hr/
+                  .caption
+                    %h3 TITLE
+      .col-md-4.fixed
+        #googleMap{style: "width:100%;height:600px;"}
+
 =content_for :javascript do
   = javascript_include_tag 'listings.js'
+      / .col-xs-12.col-md-9
+      /   .well.listings
+      /     .container
+      /       .row
+      /         .col-lg-12
+      /           %h1.page-header
+      /             Listings
+      /             /%small Secondary Text
+      /       - @listings.each do |listing|
+      /         .row
+      /           .col-md-7
+      /             - if listing.has_image?
+      /               = image_tag(listing.main_image_path, class: "img-responsive", height: "500px")
+      /             - else
+      /               = image_tag(image_path(listing.main_image_path), class: "img-responsive", height: "500px")
+      /           .col-md-5
+      /             %h3
+      /               = listing.subject
+      /             %h4.location
+      /               - location = listing.location
+      /               = "#{location.city}, #{location.address}"
+      /             %p
+      /               = listing.body
+      /             %a.btn.btn-edswap{:href => listing_path(listing.id)}
+      /               View Listing
+      /               %span.glyphicon.glyphicon-chevron-right
+      /         %hr/
+

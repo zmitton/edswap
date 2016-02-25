@@ -3,7 +3,7 @@
 %head
   %title edSwap
   %script{src: "http://maps.googleapis.com/maps/api/js"}
-  = stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true
+  = stylesheet_link_tag  'application', 'https://fonts.googleapis.com/css?family=Montserrat', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'application'
   = yield :javascript
   %meta{name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0"}
@@ -13,7 +13,7 @@
   %nav.navbar.navbar-fixed-top
     .container
       %a{href: "/listings"}
-        =image_tag "edswap-orange.png", :height => "50"
+        =image_tag "edswap-logo.png", :height => "50"
       - if current_user
         %a{href: "/users/#{current_user.id}", id: "nav_user_name"}
           Hi #{current_user.nickname}
