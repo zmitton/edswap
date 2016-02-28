@@ -1,6 +1,6 @@
 %section.search-form
   .container
-    .row
+    .row.search-mobile
       .col-md-8
         .search-box
           %form.form-inline
@@ -11,7 +11,7 @@
                     %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
                       Location
                       %span.caret
-                    %ul.dropdown-menu.dropdown-menu-right
+                    %ul.dropdown-menu
                       %li
                         %a{:href => "#"} San Francisco
                       %li

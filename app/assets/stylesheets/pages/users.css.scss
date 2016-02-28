@@ -22,10 +22,11 @@
   -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
   -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
   background-color: white;
+  min-width: 275px;
 }
 
 .nav.nav-tabs {
-  width: 411px;
+  width: 300px;
   margin: 0 auto;
   border-bottom: none;
   a {
@@ -98,8 +99,11 @@
 }
 
 @media (max-width: 767px) {
-  label {
-    text-align: left;
+  // label {
+  //   text-align: left;
+  // }
+  input.btn.btn-edswap {
+    width: 275px;
   }
 }
 

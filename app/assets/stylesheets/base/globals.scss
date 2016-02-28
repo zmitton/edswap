@@ -23,7 +23,8 @@ h3 {
 
 h6 {
   font-size: 10px;
-  margin-top: 0px;
+  padding-top: 20px;
+  color: ltgrey;
 }
 
 p {
@@ -53,7 +54,7 @@ nav.navbar {
   z-index: 999999;
   color: white;
   font-size: 1.1em;
-  padding: 0px 60px 0px 60px;
+  padding: 0px 25px 0px 25px;
   li a {
     @media(max-width: 599px) {
       .nav.nav-text {
@@ -75,11 +76,11 @@ nav.navbar {
   //text-shadow: 1px 1px #333;
 }
 
-.navbar-logo {
-  padding-left: 60px;
-  padding-right: 60px;
-  margin-top: 15px;
-}
+// .navbar-logo {
+//   padding-left: 60px;
+//   padding-right: 60px;
+//   margin-top: 15px;
+// }
 
 #status a#sign_in_w_google,
 #status a#sign_in {
@@ -135,7 +136,7 @@ label {
 }
 
 input {
-  min-width: 275px;
+  min-width: 240px;
   min-height: 40px;
 }
 
@@ -226,6 +227,16 @@ select {
         width: 74%
 }
 
+.listing-checkbox {
+    margin-right: 0px;
+    padding-left: 0px;
+    max-width: 100px;
+}
+.navbar-right {
+  float: right;
+  padding-top: 10px;
+}
+
 @media (max-width: 767px) {
   .fixed {
     position: fixed;
@@ -245,14 +256,40 @@ select {
     float: left;
     width: 55%
   }
- .navbar-right {
-    float: right;
-  }
+
   .navbar-right li a span {
   display: none;
   }
   .mission-vision article {
     margin: 0 30px;
+  }
+  .navbar.navbar-fixed-top {
+    padding: 0 8px;
+  }
+  #create_listing_div.inner-wrap {
+    width: 300px;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  label {
+    text-align: left;
+    padding-left: 10px;
+  }
+  .sign-in-box,
+  .login-box {
+    border: none;
+
+  }
+  .thumbnail.login-box {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .search-mobile {
+    width: 320px;
+    margin: 0 auto;
   }
 
 }

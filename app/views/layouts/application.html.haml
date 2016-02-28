@@ -17,11 +17,11 @@
       - if current_user
         / %a{href: "/users/#{current_user.id}", id: "nav_user_name"}
         /   %span Hi #{current_user.nickname}
-      %ul.nav.navbar-nav.navbar-right.nav-pills
+      %ul.nav.navbar-right.nav-pills
         - if current_user
           %li
             = link_to user_path(session[:user_id]), class: "nav-text fa fa-user" do
-              Hi #{current_user.nickname}
+              %span Hi #{current_user.nickname}
           %li
             = link_to new_listing_path, class: "nav-text fa fa-pencil-square-o" do
               %span New Listing
@@ -46,7 +46,7 @@
     - flash.each do |name, msg|
       = content_tag :div, msg, class: "alert alert-info"
     = yield
-%footer
+%footer.container
   .row
     .col-md-4
     .col-md-4
@@ -61,5 +61,5 @@
           %a{:href => "mailto:info@edswap.org?Subject=Edswap%20Question"}
             %i.fa.fa-envelope
         %li
-    .col-md-4
+    .col-md-4.copyright
       %h6 Copyright &copy; edSwap 2015

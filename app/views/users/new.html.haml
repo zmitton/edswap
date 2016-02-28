@@ -28,9 +28,9 @@
               %a#password_reset_button{href: ""} forgot password
             = f.submit "sign in", :class => 'btn btn-edswap'
   #signup-tab.tab-pane.fade
-    .col-md-6.col-md-offset-3.col-sm-12.tab-container
+    .col-md-6.col-md-offset-3.col-xs-12.tab-container
       .thumbnail.sign-in-box
-        %h3 Create an Account
+        %h1 Create an Account
         = form_for @user, url: url_for(controller: 'users', action: "create"), html: {class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f|
           = f.label :preferred_email, "Email", title: "We will never give this out or spam you"
           = f.text_field :preferred_email, title: "We will never give this out or spam you", required: true

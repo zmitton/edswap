@@ -32,9 +32,9 @@
   .inner-wrap#create_listing_div
     = form_for @listing, url: url_for(controller: 'listings', action: "create"), html: { class: "create_listing_form directUpload", data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f|
       %label.form-text-field
-        Title
+        Title:
         = f.text_field :subject, id: "title_box", required: true
-      %label.listing-checkbox
+      %label.form-text-field
         I'd like to:
       %label.listing-checkbox{for: "lend_box"}
         = f.check_box :lending,   value: true, id: "lend_box",   name: "listing[lending]"
@@ -52,6 +52,10 @@
       /   = f.check_box :trading,   value: true, id: "trade_box",  name: "listing[trading]"
       /   Trade
       %label.form-text-field
+        Zip Code:
+        = f.text_field :zip, required: true
+
+      %label.form-text-field
         Description:
         = f.text_area :body, required: true
       = f.fields_for :listing_image do |ff|
@@ -59,10 +63,8 @@
           Upload Photo:
           //= ff.label :image_path
           = ff.file_field :image_path
-      %label.form-text-field
-        Zip Code:
-        = f.text_field :zip, required: true
-      = f.submit :submit, class: "btn btn-edswap", value: "Post Now"
+          = f.submit :submit, class: "btn btn-edswap", value: "Post Now"
+
 
 
 
