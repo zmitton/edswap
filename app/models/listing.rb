@@ -13,7 +13,10 @@ class Listing < ActiveRecord::Base
 
   def get_bay_area
     ListingConcern::BAYS.each do |bay, zips|
-      self.bay_area = bay if zips.include?(zip)
+      if zips.include?(zip)
+        self.bay_area = bay 
+        return true
+      end
     end
     false
   end
