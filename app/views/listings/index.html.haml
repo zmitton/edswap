@@ -1,45 +1,49 @@
+
+
+
 %section.search-form
   .container
     .row.search-mobile
-      .col-md-8
-        .search-box
-          %form.form-inline
-            .form-group
-              .input-group
-                %input.form-control{"aria-label" => "...", :placeholder => "What are you looking for?", :type => "text"}
-                  .input-group-btn
-                    %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-                      Location
-                      %span.caret
-                    %ul.dropdown-menu
-                      %li
-                        %a{:href => "#"} San Francisco
-                      %li
-                        %a{:href => "#"} East Bay
-                      %li
-                        %a{:href => "#"} North Bay
-                      %li
-                        %a{:href => "#"} South Bay
-                      %li
-                        %a{:href => "#"} Peninsula
-                    %button.btn.btn-search{:type => "submit"}
-                      %i.fa.fa-search
+      .col-md-8.col-sm-6.col-xs-12
+        %form.form-inline
+          .form-group.input-group
+            %input.form-control{"aria-label" => "...", :placeholder => "Search", :type => "text"}
+              .input-group-btn
+                %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                  Location
+                  %span.caret
+                %ul.dropdown-menu
+                  %li
+                    %a{:href => "#"} San Francisco
+                  %li
+                    %a{:href => "#"} East Bay
+                  %li
+                    %a{:href => "#"} North Bay
+                  %li
+                    %a{:href => "#"} South Bay
+                  %li
+                    %a{:href => "#"} Peninsula
+                %button.btn.btn-search{:type => "submit"}
+                  %i.fa.fa-search
 
 
-  .container.recent-ads
-    .row
-      .list-ads.scrollit
-        .row.text-center
-        - @listings.each do |listing|
 
-          .col-md-4.col-xl-4.col-xs-12.col-sm-6.hero-feature
-            .thumbnail
-              - if listing.has_image?
-                = image_tag(listing.main_image_path, class: "img-responsive", height: "500px")
-              - else
-                = image_tag(image_path(listing.main_image_path), class: "img-responsive", height: "500px")
-              .caption
-                %h3 TITLE
+    .recent-ads
+      .row
+        .list-ads.scrollit.flex-container
+          .text-center
+          - @listings.each do |listing|
+
+            %li.list-item
+              .list-content
+                .caption
+                  %h4.text-center This will be the listing Title
+                - if listing.has_image?
+                  = image_tag(listing.main_image_path, class: "img-responsive", height: "500px")
+                - else
+                  = image_tag(image_path(listing.main_image_path), class: "img-responsive", height: "500px")
+
+
   .col-md-4.map-fixed.fixed
     #googleMap{style: "width:100%;height:600px;"}
 
